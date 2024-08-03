@@ -154,9 +154,10 @@ main {
 
 @media only screen and (min-width: 481px) and (max-width: 767px) {
     main {
+      padding: 1.5rem;
         & .hourRange {
             width: 90vw;
-            margin-top: 2rem;
+            margin-top: 1rem;
             display: flex;
             flex-direction: column;
             gap: 1rem;
