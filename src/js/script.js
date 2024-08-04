@@ -6,35 +6,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
 let cityInput = document.getElementById("cityInput");
 const select = document.getElementById("favorite-cities");
-let isUpdating = false;  
-let selectedCityValue = ''; 
+let isUpdating = false;
+let selectedCityValue = '';
 
 async function main() {
 
     select.addEventListener('change', () => {
-        if (isUpdating) return; 
+        if (isUpdating) return;
 
         const selectedOption = select.options[select.selectedIndex];
         if (selectedOption.value) {
-            isUpdating = true;  
-            cityInput.value = '';  
-            selectedCityValue = selectedOption.text; 
-            // console.log("Ciudad seleccionada:", selectedCityValue); 
-            isUpdating = false;  
+            isUpdating = true;
+            cityInput.value = '';
+            selectedCityValue = selectedOption.text;
+            // console.log("Ciudad seleccionada:", selectedCityValue);
+            isUpdating = false;
         }
     });
 
     cityInput.addEventListener('input', () => {
-        if (isUpdating) return;  
+        if (isUpdating) return;
 
         const inputText = cityInput.value.trim();
         if (inputText) {
-            isUpdating = true;  
-            select.value = '';  
+            isUpdating = true;
+            select.value = '';
             fetchSuggestions(inputText);
-            isUpdating = false;  
+            isUpdating = false;
         } else {
-            document.getElementById('suggestions').innerHTML = '';  
+            document.getElementById('suggestions').innerHTML = '';
+        }
+    });
+
+    
+    document.addEventListener('click', (event) => {
+        if (!cityInput.contains(event.target) && !document.getElementById('suggestions').contains(event.target)) {
+            document.getElementById('suggestions').innerHTML = '';
         }
     });
 }
@@ -62,8 +69,8 @@ async function fetchSuggestions(query) {
         li.addEventListener('click', () => {
             cityInput.value = suggestion;
             suggestionsList.innerHTML = '';
-            select.value = '';  
-            selectedCityValue = suggestion; 
+            select.value = '';
+            selectedCityValue = suggestion;
             // console.log("Ciudad seleccionada de sugerencias:", selectedCityValue);
         });
         suggestionsList.appendChild(li);
