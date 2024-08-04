@@ -11,14 +11,14 @@
       <section class="inputsSearchButton">
         <div class="dropdown">
           <select name="favorite-cities" id="favorite-cities">
-            <option value="" disabled selected>Select your favorite City</option>
+            <option value="" disabled selected >Pick your fav city</option>
             <option value="vancouver" >Vancouver</option>
             <option value="london">London</option>
             <!-- Add more cities as needed -->
           </select>
         </div>
         <div class="autocomplete-container">
-          <input type="text" placeholder="Cities" id="cityInput" oninput="autocompleteCity()">
+          <input type="text" placeholder="Cities" id="cityInput"  autocomplete="off"  oninput="autocompleteCity()">
           <ul id="suggestions" class="suggestions-list"></ul>
         </div>
 

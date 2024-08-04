@@ -12,14 +12,14 @@ let selectedCityValue = '';
 async function main() {
 
     select.addEventListener('change', () => {
-        if (isUpdating) return;  // Salir si se está actualizando mutuamente
+        if (isUpdating) return; 
 
         const selectedOption = select.options[select.selectedIndex];
         if (selectedOption.value) {
             isUpdating = true;  
             cityInput.value = '';  
             selectedCityValue = selectedOption.text; 
-            console.log("Ciudad seleccionada:", selectedCityValue); 
+            // console.log("Ciudad seleccionada:", selectedCityValue); 
             isUpdating = false;  
         }
     });
@@ -49,7 +49,7 @@ async function fetchSuggestions(query) {
         redirect: "follow"
     };
 
-    const response = await fetch(`https://api.radar.io/v1/search/autocomplete?query=${query}`, requestOptions);
+    const response = await fetch(`https://api.radar.io/v1/search/autocomplete?query=${query}&limit=7`, requestOptions);
     const data = await response.json();
 
     const suggestions = data.addresses.map(address => address.formattedAddress);
@@ -64,7 +64,7 @@ async function fetchSuggestions(query) {
             suggestionsList.innerHTML = '';
             select.value = '';  
             selectedCityValue = suggestion; 
-            console.log("Ciudad seleccionada de sugerencias:", selectedCityValue);
+            // console.log("Ciudad seleccionada de sugerencias:", selectedCityValue);
         });
         suggestionsList.appendChild(li);
     });
@@ -78,13 +78,4 @@ async function autocompleteCity() {
     }
 
     fetchSuggestions(input);
-}
-
-// Función de ejemplo para usar selectedCityValue con la otra API
-function useSelectedCity() {
-    if (selectedCityValue) {
-        console.log("Usando la ciudad seleccionada para otra API:", selectedCityValue);
-    } else {
-        console.log("No hay ciudad seleccionada");
-    }
 }

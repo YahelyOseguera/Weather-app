@@ -13,6 +13,7 @@
         appearance: none;
         -webkit-appearance: none;
         width: 100%;
+        min-height: 3rem;
         font-size: 1rem;
         padding: 0.5rem 1rem;
         background-color: #fff;
@@ -48,9 +49,11 @@
 
     #cityInput {
         width: 100%;
-        padding: 10px;
+        min-height: 3rem;
+        padding: 0 0.625rem;
         box-sizing: border-box;
         border: 1px solid #ccc;
+        outline: none;
         border-radius: 4px;
     }
 
@@ -59,7 +62,7 @@
         width: 100%;
         border: 1px solid #ccc;
         border-top: none;
-        max-height: 200px;
+        max-height: 12.5rem;
         overflow-y: auto;
         background-color: white;
         border-radius: 0 0 4px 4px;
@@ -69,7 +72,7 @@
         z-index: 1000;
 
         li {
-            padding: 10px;
+            padding: 0.625rem;
             cursor: pointer;
         }
 
