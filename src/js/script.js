@@ -67,13 +67,21 @@ async function fetchSuggestions(query) {
         const li = document.createElement('li');
         li.textContent = suggestion;
         li.addEventListener('click', () => {
+
+            console.log(suggestion);
+
+
             cityInput.value = suggestion;
             suggestionsList.innerHTML = '';
             select.value = '';
             selectedCityValue = suggestion;
-            // console.log("Ciudad seleccionada de sugerencias:", selectedCityValue);
+            
+            apiWheaterCall(objecto);
+
+            console.log("Ciudad seleccionada de sugerencias:", selectedCityValue);
         });
-        suggestionsList.appendChild(li);
+
+        suggestionsList.appendChild(li); 
     });
 }
 
@@ -86,3 +94,30 @@ async function autocompleteCity() {
 
     fetchSuggestions(input);
 }
+
+/* Daily Forescast */ 
+let object = {
+    city: "Vancouver",
+    latitude: 49.2819,
+    longitude: 123.11874, 
+}
+
+apiWheaterCall(object);
+
+async function apiWheaterCall (object){
+    let latitude = object.latitude;
+    let longitude = object.longitude;
+    const requestOptions = {
+        method: "GET",
+        redirect: "follow"
+      };
+      
+      await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weather_code&hourly=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min`, requestOptions)
+        .then((response) => response.text())
+        .then((result) => {
+            var result = JSON.parse(result);
+            console.log(result);
+        }) 
+        .catch((error) => console.error(error));
+} 
+
