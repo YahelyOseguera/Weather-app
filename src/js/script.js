@@ -9,6 +9,13 @@ const select = document.getElementById("favorite-cities");
 let isUpdating = false;
 let selectedCityValue = '';
 
+// Inicializar el objeto con valores predeterminados
+let object = {
+    city: "Vancouver, BC CAN",
+    latitude: 49.2819,
+    longitude: 123.11874,
+}
+
 async function main() {
 
     select.addEventListener('change', () => {
@@ -38,7 +45,6 @@ async function main() {
         }
     });
 
-    
     document.addEventListener('click', (event) => {
         if (!cityInput.contains(event.target) && !document.getElementById('suggestions').contains(event.target)) {
             document.getElementById('suggestions').innerHTML = '';
@@ -59,26 +65,32 @@ async function fetchSuggestions(query) {
     const response = await fetch(`https://api.radar.io/v1/search/autocomplete?query=${query}&limit=7`, requestOptions);
     const data = await response.json();
 
-    const suggestions = data.addresses.map(address => address.formattedAddress);
+    const suggestions = data.addresses.map(address => ({
+        formattedAddress: address.formattedAddress,
+        latitude: address.latitude,
+        longitude: address.longitude
+    }));
     const suggestionsList = document.getElementById('suggestions');
     suggestionsList.innerHTML = '';
 
     suggestions.forEach(suggestion => {
         const li = document.createElement('li');
-        li.textContent = suggestion;
+        li.textContent = suggestion.formattedAddress;
         li.addEventListener('click', () => {
-
-            console.log(suggestion);
-
-
-            cityInput.value = suggestion;
+            cityInput.value = suggestion.formattedAddress;
             suggestionsList.innerHTML = '';
             select.value = '';
-            selectedCityValue = suggestion;
+            selectedCityValue = suggestion.formattedAddress;
 
-            apiWeatherCall(objecto);
+            // Actualizar el objeto con la ciudad seleccionada y sus coordenadas
+            object.city = suggestion.formattedAddress;
+            object.latitude = suggestion.latitude;
+            object.longitude = suggestion.longitude;
+
+            apiWeatherCall(object);
 
             console.log("Ciudad seleccionada de sugerencias:", selectedCityValue);
+            console.log("Objeto actualizado:", object);
         });
 
         suggestionsList.appendChild(li); 
@@ -95,29 +107,23 @@ async function autocompleteCity() {
     fetchSuggestions(input);
 }
 
-/* Daily Forescast */ 
-let object = {
-    city: "Vancouver",
-    latitude: 49.2819,
-    longitude: 123.11874, 
-}
-
-apiWeatherCall(object);
-
-async function apiWeatherCall (object){
+/* Daily Forecast */
+async function apiWeatherCall(object) {
     let latitude = object.latitude;
     let longitude = object.longitude;
     const requestOptions = {
         method: "GET",
         redirect: "follow"
-      };
-      
-      await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weather_code&hourly=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min`, requestOptions)
+    };
+
+    await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weather_code&hourly=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min`, requestOptions)
         .then((response) => response.text())
         .then((result) => {
             var result = JSON.parse(result);
             console.log(result);
-        }) 
+        })
         .catch((error) => console.error(error));
-} 
+}
 
+// Llamar a la API de clima con los valores iniciales del objeto
+apiWeatherCall(object);

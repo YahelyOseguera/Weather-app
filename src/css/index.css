@@ -59,8 +59,7 @@ main .inputsSearchButton .dropdown {
   position: relative;
 }
 main .inputsSearchButton .dropdown select {
-  -moz-appearance: none;
-       appearance: none;
+  appearance: none;
   -webkit-appearance: none;
   width: 100%;
   min-height: 3rem;
@@ -128,7 +127,6 @@ main .currenWeatherBox {
   justify-content: center;
   align-items: center;
   width: 90vw;
-  height: -moz-fit-content;
   height: fit-content;
   flex-direction: column;
   gap: 2rem;
@@ -261,4 +259,6 @@ main .hourRange .Third {
   border: 1px solid black;
   justify-content: center;
   align-items: center;
-}/*# sourceMappingURL=index.css.map */
+}
+
+/*# sourceMappingURL=index.css.map */
