@@ -259,22 +259,51 @@ main {
 /* Daily Forescast Section*/
 .dailyForescast{
   width: 100%;
-  padding: 30px 30px;
+  padding: 10px 20px;
 }
 
   .dailyForecastCard{
       display: flex;
+      justify-content: space-around;
       gap: 20px;
       border: 1px solid black;
       padding: 30px 30px;
 
       .dailyCard{
           display: flex;
-          flex-direction: row;
+          flex-direction: column ;
           width: 30%;
-          height: 150px;
+          height: 200px;
           border: 1px solid black;
           justify-content: center;
           align-items: center;
+
+          h3{
+            font-size: 20px;
+            margin: 0;
+          }
+          img{
+            width: 50px;
+            height: 80px;
+            margin: 10px 0;
+          }
+          p{
+            font-size: 50px;
+            margin: 0;
+          }
+          .maxAndMinTemperature{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+            padding: 0;
+
+            p{
+              font-size: 30px;
+              margin: 0;
+            }
+          }
+
         }
   }
