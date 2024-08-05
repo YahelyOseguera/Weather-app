@@ -7,17 +7,59 @@
     <title>WeatherApp</title>
   </head>
   <body>
-    <section class="dailyForescast">
-      <h1>Daily Forescast - 5 days</h1>
-      <div class="dailyForecastCard">
-          <div class="dailyCard"> Day 1</div>
-          <div class="dailyCard"> Day 2</div>
-          <div class="dailyCard"> Day 3</div>
-          <div class="dailyCard"> Day 4</div>
-          <div class="dailyCard"> Day 5</div>
-      </div>
-  </section>
    
+   
+    <main>
+
+      <section class="inputsSearchButton">
+        <div class="dropdown">
+          <select name="favorite-cities" id="favorite-cities">
+            <option value="" disabled selected >Pick your fav city</option>
+            <option value="vancouver" >Vancouver</option>
+            <option value="london">London</option>
+            <!-- Add more cities as needed -->
+          </select>
+        </div>
+        <div class="autocomplete-container">
+          <input type="text" placeholder="Cities" id="cityInput"  autocomplete="off"  oninput="autocompleteCity()">
+          <ul id="suggestions" class="suggestions-list"></ul>
+        </div>
+      </section>
+      
+      <h1>Current Weather</h1>
+      <div class="currenWeatherBox">
+        <div class="temperature">
+          <div class="nameCity">
+            <h2>City Name</h2>
+            <p class="Celsius">#C</p>
+            <div class="img"><img src="img/star.png" alt="star" /></div>
+          </div>
+          <p class="celsius">#C</p>
+        </div>
+        <div class="weatherInfo">Weather Info</div>
+      </div>
+      <section class="dailyForescast">
+        <h1>Daily Forescast - 5 days</h1>
+        <div class="dailyForecastCard">
+            <div class="dailyCard"> Day 1</div>
+            <div class="dailyCard"> Day 2</div>
+            <div class="dailyCard"> Day 3</div>
+            <div class="dailyCard"> Day 4</div>
+            <div class="dailyCard"> Day 5</div>
+        </div>
+    </section>
+      <h1>3 hour range</h1>
+      <div class="hourRange">
+        <div class="Third">0-3</div>
+        <div class="Third">3-6</div>
+        <div class="Third">6-9</div>
+        <div class="Third">9-12</div>
+        <div class="Third">12-15</div>
+        <div class="Third">15-18</div>
+        <div class="Third">18-21</div>
+        <div class="Third">21-0</div>
+      </div>
+    </main>
     <script src="js/script.js"></script>
   </body>
 </html>

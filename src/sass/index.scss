@@ -1,61 +1,280 @@
+
+
+  
+// Reset
+
 * {
-    margin: 0;
-    padding: 0;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  }
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-  
-  body {
-    min-height: 100dvh;
-  }
-  input,
-  button,
-  textarea,
-  select {
-    font: inherit;
-  }
-  
-  p {
-    text-wrap: pretty;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    text-wrap: balance;
-  }
-  
-  img,
-  video,
-  svg {
-    height: auto;
-    max-width: 100%;
-  }
+  margin: 0;
+  padding: 0;
+  /*   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; */
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-  .dailyForescast{
-    width: 100%;
-    padding: 30px 30px;
-  }
+body {
+  min-height: 100dvh;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
 
-    .dailyForecastCard{
-        display: flex;
-        gap: 20px;
-        border: 1px solid black;
-        padding: 30px 30px;
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
 
-        .dailyCard{
-            display: flex;
-            flex-direction: row;
-            width: 30%;
-            height: 150px;
-            border: 1px solid black;
-            justify-content: center;
-            align-items: center;
-          }
+img,
+video,
+svg {
+  height: auto;
+  max-width: 100%;
+}
+
+// Styles
+
+main {
+  padding: 4rem;
+
+  /* Inputs styles  */
+  .inputsSearchButton {
+    display: flex;
+    justify-content: space-around;
+    gap: 4rem;
+    padding: 2rem 0;
+    /*     border: 1px red solid; */
+    .dropdown {
+      width: 13.5rem;
+      position: relative;
+
+      & select {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 100%;
+        min-height: 3rem;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 0.3rem;
+        cursor: pointer;
+      }
+
+      .dropdown::after {
+        content: "\25BC";
+        font-size: 0.75rem;
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        pointer-events: none;
+      }
     }
+
+    input[type="text"] {
+      width: 16rem;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 0.3rem;
+    }
+  }
+
+  .autocomplete-container {
+    position: relative;
+    width: 18.75rem;
+
+    #cityInput {
+      width: 100%;
+      min-height: 3rem;
+      padding: 0 0.625rem;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      outline: none;
+      border-radius: 4px;
+    }
+
+    .suggestions-list {
+      position: absolute;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-top: none;
+      max-height: 12.5rem;
+      overflow-y: auto;
+      background-color: white;
+      border-radius: 0 0 4px 4px;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      z-index: 1000;
+
+      li {
+        padding: 0.625rem;
+        cursor: pointer;
+      }
+
+      li:hover {
+        background-color: #f0f0f0;
+      }
+    }
+  }
+  /* End of inputs styles */
+  & .currenWeatherBox {
+    padding: 2rem 0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    height: fit-content;
+    flex-direction: column;
+    gap: 2rem;
+    border: 0.05rem solid rgb(161, 158, 158);
+    & .temperature {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 2rem;
+      & .nameCity {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        & .Celsius {
+          display: none;
+        }
+        & .img {
+          width: 1rem;
+          height: 1rem;
+          position: relative;
+          left: 10rem;
+        }
+      }
+    }
+    & .weatherInfo {
+      width: 50vw;
+      height: 6rem;
+      border: 0.05rem solid rgb(161, 158, 158);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  & .hourRange {
+    width: 90vw;
+    padding: 1rem 2rem;
+    border: 0.05rem solid rgb(161, 158, 158);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    & .Third {
+      width: 5rem;
+      height: 7rem;
+      border: 0.05rem solid rgb(161, 158, 158);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+// Responsive Styles
+
+// Mobile
+
+@media only screen and (max-width: 480px) {
+  main {
+    padding: 1rem;
+    h1 {
+      display: none;
+    }
+    & .currenWeatherBox {
+      padding: 1rem 0rem;
+      gap: 1rem;
+      .temperature {
+        display: flex;
+        flex-direction: row;
+        & .nameCity {
+          padding-bottom: 0rem;
+          display: flex;
+          justify-content: space-between;
+          gap: 1rem;
+          & .Celsius {
+            display: flex;
+          }
+          & .img {
+            left: 3vw;
+          }
+        }
+        & .celsius {
+          display: none;
+        }
+      }
+      & .weatherInfo {
+        width: 70vw;
+        height: 5rem;
+      }
+    }
+    & .hourRange {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      & .Third {
+        width: 80vw;
+        height: 3rem;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  main {
+    padding: 1.5rem;
+    & .hourRange {
+      width: 90vw;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      & .Third {
+        width: 80vw;
+        height: 3rem;
+      }
+    }
+  }
+}
+/* Daily Forescast Section*/
+.dailyForescast{
+  width: 100%;
+  padding: 30px 30px;
+}
+
+  .dailyForecastCard{
+      display: flex;
+      gap: 20px;
+      border: 1px solid black;
+      padding: 30px 30px;
+
+      .dailyCard{
+          display: flex;
+          flex-direction: row;
+          width: 30%;
+          height: 150px;
+          border: 1px solid black;
+          justify-content: center;
+          align-items: center;
+        }
+  }
