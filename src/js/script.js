@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 let cityInput = document.getElementById("cityInput");
 const select = document.getElementById("favorite-cities");
+const starIcon = document.querySelector('.star-icon');
 let isUpdating = false;
 let selectedCityValue = '';
 
@@ -48,6 +49,15 @@ async function main() {
     document.addEventListener('click', (event) => {
         if (!cityInput.contains(event.target) && !document.getElementById('suggestions').contains(event.target)) {
             document.getElementById('suggestions').innerHTML = '';
+        }
+    });
+
+    starIcon.addEventListener('click', () => {
+        starIcon.classList.toggle('selected');
+        if (starIcon.classList.contains('selected')) {
+            addCityToFavorites(object);
+        } else {
+            removeCityFromFavorites(object.city);
         }
     });
 }
@@ -93,8 +103,24 @@ async function fetchSuggestions(query) {
             console.log("Objeto actualizado:", object);
         });
 
-        suggestionsList.appendChild(li); 
+        suggestionsList.appendChild(li);
     });
+}
+
+function addCityToFavorites(cityObject) {
+    const option = document.createElement('option');
+    option.value = cityObject.city.toLowerCase().replace(/ /g, '-');
+    option.textContent = cityObject.city;
+    option.selected = true;
+    select.appendChild(option);
+}
+
+function removeCityFromFavorites(cityName) {
+    const options = Array.from(select.options);
+    const optionToRemove = options.find(option => option.textContent === cityName);
+    if (optionToRemove) {
+        select.removeChild(optionToRemove);
+    }
 }
 
 async function autocompleteCity() {

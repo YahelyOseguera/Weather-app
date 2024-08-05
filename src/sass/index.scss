@@ -278,3 +278,7 @@ main {
           align-items: center;
         }
   }
+
+  .star-icon.selected {
+    filter: brightness(0) saturate(100%) invert(78%) sepia(10%) saturate(5000%) hue-rotate(350deg) brightness(104%) contrast(102%);
+  }
