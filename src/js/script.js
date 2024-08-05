@@ -75,8 +75,8 @@ async function fetchSuggestions(query) {
             suggestionsList.innerHTML = '';
             select.value = '';
             selectedCityValue = suggestion;
-            
-            apiWheaterCall(objecto);
+
+            apiWeatherCall(objecto);
 
             console.log("Ciudad seleccionada de sugerencias:", selectedCityValue);
         });
@@ -102,9 +102,9 @@ let object = {
     longitude: 123.11874, 
 }
 
-apiWheaterCall(object);
+apiWeatherCall(object);
 
-async function apiWheaterCall (object){
+async function apiWeatherCall (object){
     let latitude = object.latitude;
     let longitude = object.longitude;
     const requestOptions = {
