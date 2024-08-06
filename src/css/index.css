@@ -244,27 +244,28 @@ main .hourRange .Third {
 /* Daily Forescast Section*/
 .dailyForescast {
   width: 100%;
-  padding: 10px 20px;
+  margin: 40px 0;
 }
 
 .dailyForecastCard {
+  width: 100%;
   display: flex;
-  justify-content: space-around;
-  gap: 20px;
+  justify-content: space-between;
   border: 1px solid black;
-  padding: 30px 30px;
+  padding: 10px 10px;
 }
 .dailyForecastCard .dailyCard {
   display: flex;
   flex-direction: column;
-  width: 30%;
-  height: 200px;
+  width: 160px;
+  height: 220px;
   border: 1px solid black;
   justify-content: center;
   align-items: center;
+  background-color: lightgray;
 }
 .dailyForecastCard .dailyCard h3 {
-  font-size: 20px;
+  font-size: 25px;
   margin: 0;
 }
 .dailyForecastCard .dailyCard img {
@@ -273,7 +274,7 @@ main .hourRange .Third {
   margin: 10px 0;
 }
 .dailyForecastCard .dailyCard p {
-  font-size: 50px;
+  font-size: 15px;
   margin: 0;
 }
 .dailyForecastCard .dailyCard .maxAndMinTemperature {
@@ -285,6 +286,53 @@ main .hourRange .Third {
   padding: 0;
 }
 .dailyForecastCard .dailyCard .maxAndMinTemperature p {
-  font-size: 30px;
+  font-size: 20px;
   margin: 0;
+}
+
+@media only screen and (max-width: 480px) {
+  .dailyForescast {
+    width: 100%;
+    margin: 40px 0;
+  }
+  .dailyForescast h1 {
+    display: none;
+  }
+  .dailyForescast .dailyForecastCard {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .dailyForescast .dailyForecastCard .dailyCard {
+    width: 75px;
+  }
+  .dailyForescast .dailyForecastCard .dailyCard h3 {
+    font-size: small;
+  }
+  .dailyForescast .dailyForecastCard .dailyCard p {
+    font-size: 11px;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .dailyForescast {
+    margin: 0;
+    width: 100%;
+    margin: 40px 0;
+  }
+  .dailyForescast h1 {
+    display: none;
+  }
+  .dailyForescast .dailyForecastCard {
+    width: 100%;
+    margin: 0;
+    justify-content: space-between;
+  }
+  .dailyForescast .dailyForecastCard .dailyCard {
+    width: 100px;
+  }
+  .dailyForescast .dailyForecastCard .dailyCard h3 {
+    font-size: 18px;
+  }
+  .dailyForescast .dailyForecastCard .dailyCard p {
+    font-size: 15px;
+  }
 }/*# sourceMappingURL=index.css.map */

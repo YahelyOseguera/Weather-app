@@ -237,7 +237,7 @@ main {
         height: 3rem;
       }
     }
-  }
+  } 
 }
 
 @media only screen and (min-width: 481px) and (max-width: 767px) {
@@ -256,30 +256,31 @@ main {
     }
   }
 }
+
 /* Daily Forescast Section*/
 .dailyForescast{
   width: 100%;
-  padding: 10px 20px;
+  margin: 40px 0;
 }
-
   .dailyForecastCard{
+      width: 100%;
       display: flex;
-      justify-content: space-around;
-      gap: 20px;
+      justify-content: space-between;
       border: 1px solid black;
-      padding: 30px 30px;
+      padding: 10px 10px;
 
       .dailyCard{
           display: flex;
           flex-direction: column ;
-          width: 30%;
-          height: 200px;
+          width: 160px;
+          height: 220px;
           border: 1px solid black;
           justify-content: center;
           align-items: center;
+          background-color: lightgray;
 
           h3{
-            font-size: 20px;
+            font-size: 25px;
             margin: 0;
           }
           img{
@@ -288,7 +289,7 @@ main {
             margin: 10px 0;
           }
           p{
-            font-size: 50px;
+            font-size: 15px;
             margin: 0;
           }
           .maxAndMinTemperature{
@@ -298,12 +299,58 @@ main {
             align-items: center;
             width: 100%;
             padding: 0;
-
             p{
-              font-size: 30px;
+              font-size: 20px;
               margin: 0;
             }
           }
-
-        }
+      }
   }
+
+  @media only screen and (max-width: 480px) {
+    .dailyForescast{
+      width: 100%;
+      margin: 40px 0;
+      h1{
+        display: none;
+      }
+      .dailyForecastCard{
+        width: 100%;
+        justify-content: space-between;
+        .dailyCard{
+          width: 75px;
+          h3{
+            font-size: small;
+          }
+          p{
+            font-size: 11px;
+          }
+        }
+      }
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 767px){
+  .dailyForescast{
+    margin: 0;
+    width: 100%;
+    margin: 40px 0;
+    h1{
+      display: none;
+    }
+    .dailyForecastCard{
+      width: 100%;
+      margin: 0;
+      justify-content: space-between;
+      .dailyCard{
+        width: 100px;
+        h3{
+          font-size: 18px;
+        }
+        p{
+          font-size: 15px;
+        }
+      }
+    }
+}
+}
