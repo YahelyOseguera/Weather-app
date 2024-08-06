@@ -52,15 +52,16 @@ async function main() {
         }
     });
 
-    starIcon.addEventListener('click', () => {
-        starIcon.classList.toggle('selected');
-        if (starIcon.classList.contains('selected')) {
-            addCityToFavorites(object);
-        } else {
-            removeCityFromFavorites(object.city);
-        }
-    });
 }
+
+starIcon.addEventListener('click', () => {
+    starIcon.classList.toggle('selected');
+    if (starIcon.classList.contains('selected')) {
+        addCityToFavorites(object);
+    } else {
+        removeCityFromFavorites(object.city);
+    }
+});
 
 async function fetchSuggestions(query) {
     const myHeaders = new Headers();
@@ -133,6 +134,10 @@ async function autocompleteCity() {
     fetchSuggestions(input);
 }
 
+const degreesCelsius = document.getElementById('degreesCelsius');
+const city = document.getElementById('city_Name');
+
+
 /* Daily Forecast */
 async function apiWeatherCall(object) {
     let latitude = object.latitude;
@@ -147,8 +152,14 @@ async function apiWeatherCall(object) {
         .then((result) => {
             var result = JSON.parse(result);
             console.log(result);
+            // Showing data
+            degreesCelsius.innerText = result.current.temperature_2m;
+            city.innerText = object.city;
+
         })
         .catch((error) => console.error(error));
+
+
 }
 
 // Llamar a la API de clima con los valores iniciales del objeto

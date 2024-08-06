@@ -13,8 +13,8 @@
         <div class="dropdown">
           <select name="favorite-cities" id="favorite-cities">
             <option value="" disabled selected>Pick your fav city</option>
-            <option value="vancouver">Vancouver</option>
-            <option value="london">London</option>
+            <!-- <option value="vancouver">Vancouver</option>
+            <option value="london">London</option> -->
             <!-- More cities will be added dynamically -->
           </select>
         </div>
@@ -27,17 +27,19 @@
       <h1>Current Weather</h1>
       <div class="currenWeatherBox">
         <div class="temperature">
-          <div class="nameCity">
-            <h2>City Name</h2>
+          <div class="cityName">
+            <h2 id="city_Name">City Name</h2>
             <p class="Celsius">#C</p>
             <div class="img star-icon">
               <!-- <img src="img/star.png" alt="star" /> -->
               <i class='bx bxs-star bx-tada bx-rotate-90' ></i>
             </div>
           </div>
-          <p class="celsius">#C</p>
+          <p class="celsius" id="degreesCelsius">#C</p>
         </div>
-        <div class="weatherInfo">Weather Info</div>
+        <div class="weatherInfo">
+          <div></div>
+        </div>
       </div>
       
       <section class="dailyForescast">
