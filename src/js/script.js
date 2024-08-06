@@ -2,11 +2,24 @@ const RADAR_API_KEY = 'prj_test_pk_be09ea0c78f3858e0fb5a481d10b3818ac15cb18';
 
 document.addEventListener("DOMContentLoaded", () => {
     main();
+    updateStarIcon();  // Asegúrate de que la estrella esté en el estado correcto al cargar
+
+    // Recuperar ciudades favoritas del localStorage y agregar al menú desplegable
+    const favoriteCities = getFavoriteCities();
+    favoriteCities.forEach(city => {
+        const option = document.createElement('option');
+        option.value = city.city.toLowerCase().replace(/ /g, '-');
+        option.textContent = city.city;
+        option.dataset.latitude = city.latitude;
+        option.dataset.longitude = city.longitude;
+        select.appendChild(option);
+    });
 });
 
 let cityInput = document.getElementById("cityInput");
 const select = document.getElementById("favorite-cities");
 const starIcon = document.querySelector('.star-icon');
+const city_Name = document.getElementById('city_Name')
 let isUpdating = false;
 let selectedCityValue = '';
 
@@ -27,7 +40,18 @@ async function main() {
             isUpdating = true;
             cityInput.value = '';
             selectedCityValue = selectedOption.text;
-            // console.log("Ciudad seleccionada:", selectedCityValue);
+            
+            // Encontrar la ciudad en el objeto y actualizar la información del clima
+            const cityData = {
+                city: selectedOption.text,
+                latitude: parseFloat(selectedOption.dataset.latitude),
+                longitude: parseFloat(selectedOption.dataset.longitude)
+            };
+
+            object = cityData;  // Actualiza el objeto con la ciudad seleccionada
+            apiWeatherCall(object);
+
+            updateStarIcon();  // Actualiza el icono de estrella
             isUpdating = false;
         }
     });
@@ -62,6 +86,15 @@ starIcon.addEventListener('click', () => {
         removeCityFromFavorites(object.city);
     }
 });
+
+function updateStarIcon() {
+    const favoriteCities = getFavoriteCities();
+    if (favoriteCities.some(city => city.city === object.city)) {
+        starIcon.classList.add('selected');
+    } else {
+        starIcon.classList.remove('selected');
+    }
+}
 
 async function fetchSuggestions(query) {
     const myHeaders = new Headers();
@@ -100,6 +133,8 @@ async function fetchSuggestions(query) {
 
             apiWeatherCall(object);
 
+            updateStarIcon();  // Actualizar el icono de estrella
+
             console.log("Ciudad seleccionada de sugerencias:", selectedCityValue);
             console.log("Objeto actualizado:", object);
         });
@@ -109,14 +144,26 @@ async function fetchSuggestions(query) {
 }
 
 function addCityToFavorites(cityObject) {
-    const option = document.createElement('option');
-    option.value = cityObject.city.toLowerCase().replace(/ /g, '-');
-    option.textContent = cityObject.city;
-    option.selected = true;
-    select.appendChild(option);
+    const favoriteCities = getFavoriteCities();
+    if (!favoriteCities.some(city => city.city === cityObject.city)) {
+        favoriteCities.push(cityObject);
+        saveFavoriteCities(favoriteCities);
+
+        const option = document.createElement('option');
+        option.value = cityObject.city.toLowerCase().replace(/ /g, '-');
+        option.textContent = cityObject.city;
+        option.dataset.latitude = cityObject.latitude;
+        option.dataset.longitude = cityObject.longitude;
+        option.selected = true;
+        select.appendChild(option);
+    }
 }
 
 function removeCityFromFavorites(cityName) {
+    let favoriteCities = getFavoriteCities();
+    favoriteCities = favoriteCities.filter(city => city.city !== cityName);
+    saveFavoriteCities(favoriteCities);
+
     const options = Array.from(select.options);
     const optionToRemove = options.find(option => option.textContent === cityName);
     if (optionToRemove) {
@@ -124,21 +171,15 @@ function removeCityFromFavorites(cityName) {
     }
 }
 
-async function autocompleteCity() {
-    const input = cityInput.value;
-    if (input.length < 3) {
-        document.getElementById('suggestions').innerHTML = '';
-        return;
-    }
-
-    fetchSuggestions(input);
+function saveFavoriteCities(cities) {
+    localStorage.setItem('favoriteCities', JSON.stringify(cities));
 }
 
-const degreesCelsius = document.getElementById('degreesCelsius');
-const city = document.getElementById('city_Name');
+function getFavoriteCities() {
+    const cities = localStorage.getItem('favoriteCities');
+    return cities ? JSON.parse(cities) : [];
+}
 
-
-/* Daily Forecast */
 async function apiWeatherCall(object) {
     let latitude = object.latitude;
     let longitude = object.longitude;
@@ -152,14 +193,12 @@ async function apiWeatherCall(object) {
         .then((result) => {
             var result = JSON.parse(result);
             console.log(result);
-            // Showing data
+            // Mostrar datos
             degreesCelsius.innerText = result.current.temperature_2m;
-            city.innerText = object.city;
+            city_Name.innerText = object.city;
 
         })
         .catch((error) => console.error(error));
-
-
 }
 
 // Llamar a la API de clima con los valores iniciales del objeto
