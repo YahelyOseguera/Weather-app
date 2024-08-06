@@ -148,7 +148,7 @@ main {
       align-items: center;
       flex-direction: column;
       gap: 2rem;
-      & .nameCity {
+      & .cityName {
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -206,7 +206,7 @@ main {
       .temperature {
         display: flex;
         flex-direction: row;
-        & .nameCity {
+        & .cityName {
           padding-bottom: 0rem;
           display: flex;
           justify-content: space-between;
@@ -354,3 +354,7 @@ main {
     }
 }
 }
+
+  .star-icon.selected {
+    filter: brightness(0) saturate(100%) invert(78%) sepia(10%) saturate(5000%) hue-rotate(350deg) brightness(104%) contrast(102%);
+  }

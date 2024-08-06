@@ -141,15 +141,15 @@ main .currenWeatherBox .temperature {
   flex-direction: column;
   gap: 2rem;
 }
-main .currenWeatherBox .temperature .nameCity {
+main .currenWeatherBox .temperature .cityName {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-main .currenWeatherBox .temperature .nameCity .Celsius {
+main .currenWeatherBox .temperature .cityName .Celsius {
   display: none;
 }
-main .currenWeatherBox .temperature .nameCity .img {
+main .currenWeatherBox .temperature .cityName .img {
   width: 1rem;
   height: 1rem;
   position: relative;
@@ -195,16 +195,16 @@ main .hourRange .Third {
     display: flex;
     flex-direction: row;
   }
-  main .currenWeatherBox .temperature .nameCity {
+  main .currenWeatherBox .temperature .cityName {
     padding-bottom: 0rem;
     display: flex;
     justify-content: space-between;
     gap: 1rem;
   }
-  main .currenWeatherBox .temperature .nameCity .Celsius {
+  main .currenWeatherBox .temperature .cityName .Celsius {
     display: flex;
   }
-  main .currenWeatherBox .temperature .nameCity .img {
+  main .currenWeatherBox .temperature .cityName .img {
     left: 3vw;
   }
   main .currenWeatherBox .temperature .celsius {
@@ -335,4 +335,7 @@ main .hourRange .Third {
   .dailyForescast .dailyForecastCard .dailyCard p {
     font-size: 15px;
   }
+}
+.star-icon.selected {
+  filter: brightness(0) saturate(100%) invert(78%) sepia(10%) saturate(5000%) hue-rotate(350deg) brightness(104%) contrast(102%);
 }/*# sourceMappingURL=index.css.map */

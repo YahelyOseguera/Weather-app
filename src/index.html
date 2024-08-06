@@ -3,25 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/index.css" >
+    <link rel="stylesheet" href="css/index.css">
     <title>WeatherApp</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
   <body>
-   
-   
     <main>
-
       <section class="inputsSearchButton">
         <div class="dropdown">
           <select name="favorite-cities" id="favorite-cities">
-            <option value="" disabled selected >Pick your fav city</option>
-            <option value="vancouver" >Vancouver</option>
-            <option value="london">London</option>
-            <!-- Add more cities as needed -->
+            <option value="" disabled selected>Pick your fav city</option>
+            <!-- <option value="vancouver">Vancouver</option>
+            <option value="london">London</option> -->
+            <!-- More cities will be added dynamically -->
           </select>
         </div>
         <div class="autocomplete-container">
-          <input type="text" placeholder="Cities" id="cityInput"  autocomplete="off"  oninput="autocompleteCity()">
+          <input type="text" placeholder="Cities" id="cityInput" autocomplete="off" oninput="autocompleteCity()">
           <ul id="suggestions" class="suggestions-list"></ul>
         </div>
       </section>
@@ -29,15 +27,21 @@
       <h1>Current Weather</h1>
       <div class="currenWeatherBox">
         <div class="temperature">
-          <div class="nameCity">
-            <h2>City Name</h2>
+          <div class="cityName">
+            <h2 id="city_Name">City Name</h2>
             <p class="Celsius">#C</p>
-            <div class="img"><img src="img/star.png" alt="star" /></div>
+            <div class="img star-icon">
+              <!-- <img src="img/star.png" alt="star" /> -->
+              <i class='bx bxs-star bx-tada bx-rotate-90' ></i>
+            </div>
           </div>
-          <p class="celsius">#C</p>
+          <p class="celsius" id="degreesCelsius">#C</p>
         </div>
-        <div class="weatherInfo">Weather Info</div>
+        <div class="weatherInfo">
+          <div></div>
+        </div>
       </div>
+      
       <section class="dailyForescast">
         <h1>Daily Forescast - 5 days</h1>
         <div class="dailyForecastCard">
