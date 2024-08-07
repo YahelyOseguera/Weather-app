@@ -188,7 +188,7 @@ async function apiWeatherCall(object) {
         redirect: "follow"
     };
 
-    await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weather_code&hourly=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min`, requestOptions)
+    await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,is_day,precipitation,weather_code&hourly=temperature_2m,precipitation_probability,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=America%2FLos_Angeles`, requestOptions)
         .then((response) => response.text())
         .then((result) => {
             var result = JSON.parse(result);
@@ -203,3 +203,5 @@ async function apiWeatherCall(object) {
 
 // Llamar a la API de clima con los valores iniciales del objeto
 apiWeatherCall(object);
+
+
