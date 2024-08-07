@@ -270,8 +270,8 @@ main .hourRange .Third {
 }
 .dailyForecastCard .dailyCard img {
   width: 50px;
-  height: 80px;
-  margin: 10px 0;
+  height: 50px;
+  margin: 20px 0;
 }
 .dailyForecastCard .dailyCard p {
   font-size: 15px;
@@ -303,13 +303,13 @@ main .hourRange .Third {
     justify-content: space-between;
   }
   .dailyForescast .dailyForecastCard .dailyCard {
-    width: 75px;
+    width: 67PX;
   }
   .dailyForescast .dailyForecastCard .dailyCard h3 {
-    font-size: small;
+    font-size: 10px;
   }
   .dailyForescast .dailyForecastCard .dailyCard p {
-    font-size: 11px;
+    font-size: 10px;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
