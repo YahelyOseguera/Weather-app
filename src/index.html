@@ -3,35 +3,76 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/index.css">
     <title>WeatherApp</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
   <body>
     <main>
+      <section class="inputsSearchButton">
+        <div class="dropdown">
+          <select name="favorite-cities" id="favorite-cities">
+            <option value="" disabled selected>Pick your fav city</option>
+            <!-- <option value="vancouver">Vancouver</option>
+            <option value="london">London</option> -->
+            <!-- More cities will be added dynamically -->
+          </select>
+        </div>
+        <div class="autocomplete-container">
+          <input type="text" placeholder="Cities" id="cityInput" autocomplete="off" oninput="autocompleteCity()">
+          <ul id="suggestions" class="suggestions-list"></ul>
+        </div>
+      </section>
+      
+      <section class="CurrentWeather">
       <h1>Current Weather</h1>
       <div class="currenWeatherBox">
         <div class="temperature">
-          <div class="nameCity">
-            <h2>City Name</h2>
+          <div class="cityName">
+            <p id="currentTime"></p><div class="vl"></div>
+            <p id="currentHour"></p>
+            <h2 id="city_Name">City Name</h2>
             <p class="Celsius">#C</p>
-            <div class="img"><img src="img/star.png" alt="star" /></div>
+            <div class="img star-icon">
+              <i class='bx bxs-star bx-tada bx-rotate-90' ></i>
+            </div>
           </div>
-          <p class="celsius">#C</p>
+          <div class="stylesDegreesCelsius"><p class="celsius" id="degreesCelsius"></p></div>
         </div>
-        <div class="weatherInfo">Weather Info</div>
+        <div class="weatherInfo">
+          <div class="description"><p id="weatherDescription"></p></div>
+          <div class="hour"><p id="dayOrNight"></p></div>
+          <div class="precipitation"><p id="precipitation"></p></div>
+        </div>
       </div>
-      <h1>3 hour range</h1>
-      <div class="hourRange">
-        <div class="Third">0-3</div>
-        <div class="Third">3-6</div>
-        <div class="Third">6-9</div>
-        <div class="Third">9-12</div>
-        <div class="Third">12-15</div>
-        <div class="Third">15-18</div>
-        <div class="Third">18-21</div>
-        <div class="Third">21-0</div>
-      </div>
+    </section>
+      
+      <section class="dailyForescast">
+        <h1>Daily Forescast - 5 days</h1>
+        <div class="dailyForecastCard">
+          <div class="dailyCard">Day 1</div>
+          <div class="dailyCard">Day 2</div>
+          <div class="dailyCard">Day 3</div>
+          <div class="dailyCard">Day 4</div>
+          <div class="dailyCard">Day 5</div>
+        </div>
+      </section>
+      
+      <section class="3HourRange">
+        <h1>3 hour range</h1>
+        <div class="hourRange">
+          <div class="Third">0-3</div>
+          <div class="Third">3-6</div>
+          <div class="Third">6-9</div>
+          <div class="Third">9-12</div>
+          <div class="Third">12-15</div>
+          <div class="Third">15-18</div>
+          <div class="Third">18-21</div>
+          <div class="Third">21-0</div>
+        </div>
+      </section>
     </main>
     <script src="js/script.js"></script>
   </body>
 </html>
+

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -43,6 +44,82 @@ svg {
 
 main {
   padding: 4rem;
+  /* Inputs styles  */
+  /* End of inputs styles */
+}
+main .inputsSearchButton {
+  display: flex;
+  justify-content: space-around;
+  gap: 4rem;
+  padding: 2rem 0;
+  /*     border: 1px red solid; */
+}
+main .inputsSearchButton .dropdown {
+  width: 13.5rem;
+  position: relative;
+}
+main .inputsSearchButton .dropdown select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  min-height: 3rem;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+main .inputsSearchButton .dropdown .dropdown::after {
+  content: "▼";
+  font-size: 0.75rem;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+main .inputsSearchButton input[type=text] {
+  width: 16rem;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+}
+main .autocomplete-container {
+  position: relative;
+  width: 18.75rem;
+}
+main .autocomplete-container #cityInput {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0 0.625rem;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 4px;
+}
+main .autocomplete-container .suggestions-list {
+  position: absolute;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 12.5rem;
+  overflow-y: auto;
+  background-color: white;
+  border-radius: 0 0 4px 4px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  z-index: 1000;
+}
+main .autocomplete-container .suggestions-list li {
+  padding: 0.625rem;
+  cursor: pointer;
+}
+main .autocomplete-container .suggestions-list li:hover {
+  background-color: #f0f0f0;
 }
 main .currenWeatherBox {
   padding: 2rem 0rem;
@@ -62,19 +139,25 @@ main .currenWeatherBox .temperature {
   flex-direction: column;
   gap: 2rem;
 }
-main .currenWeatherBox .temperature .nameCity {
+main .currenWeatherBox .temperature .cityName {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  gap: 1rem;
 }
-main .currenWeatherBox .temperature .nameCity .Celsius {
+main .currenWeatherBox .temperature .cityName .vl {
+  border-left: 0.1rem solid grey;
+  height: 1rem;
+}
+main .currenWeatherBox .temperature .cityName .Celsius {
   display: none;
 }
-main .currenWeatherBox .temperature .nameCity .img {
+main .currenWeatherBox .temperature .cityName .img {
   width: 1rem;
   height: 1rem;
   position: relative;
   left: 10rem;
+  cursor: pointer;
 }
 main .currenWeatherBox .weatherInfo {
   width: 50vw;
@@ -83,6 +166,8 @@ main .currenWeatherBox .weatherInfo {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 main .hourRange {
   width: 90vw;
@@ -116,16 +201,16 @@ main .hourRange .Third {
     display: flex;
     flex-direction: row;
   }
-  main .currenWeatherBox .temperature .nameCity {
+  main .currenWeatherBox .temperature .cityName {
     padding-bottom: 0rem;
     display: flex;
     justify-content: space-between;
     gap: 1rem;
   }
-  main .currenWeatherBox .temperature .nameCity .Celsius {
+  main .currenWeatherBox .temperature .cityName .Celsius {
     display: flex;
   }
-  main .currenWeatherBox .temperature .nameCity .img {
+  main .currenWeatherBox .temperature .cityName .img {
     left: 3vw;
   }
   main .currenWeatherBox .temperature .celsius {
@@ -161,6 +246,31 @@ main .hourRange .Third {
     width: 80vw;
     height: 3rem;
   }
+}
+/* Daily Forescast Section*/
+.dailyForescast {
+  width: 100%;
+  padding: 30px 30px;
+}
+
+.dailyForecastCard {
+  display: flex;
+  gap: 20px;
+  border: 1px solid black;
+  padding: 30px 30px;
+}
+.dailyForecastCard .dailyCard {
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+  height: 150px;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+}
+
+.star-icon.selected {
+  filter: brightness(0) saturate(100%) invert(78%) sepia(10%) saturate(5000%) hue-rotate(350deg) brightness(104%) contrast(102%);
 }
 
 /*# sourceMappingURL=index.css.map */
