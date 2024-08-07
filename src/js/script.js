@@ -188,7 +188,7 @@ async function apiWeatherCall(object) {
         redirect: "follow"
     };
 
-    await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,is_day,precipitation,weather_code&hourly=temperature_2m,precipitation_probability,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=America%2FLos_Angeles`, requestOptions)
+    await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,is_day,precipitation,weather_code&hourly=temperature_2m,precipitation_probability,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=America%2FLos_Angeles`, requestOptions)       
         .then((response) => response.text())
         .then((result) => {
             var result = JSON.parse(result);
