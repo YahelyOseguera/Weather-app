@@ -310,10 +310,10 @@ async function apiWeatherCall(object) {
 
             /* FIRST DAY */
             let maxTemperatureFirstDay = document.getElementById("maxTemperatureFirstDay"); /* MAX TEMPERATURE */
-            maxTemperatureFirstDay.innerHTML = result.daily.temperature_2m_max[0] + "°C"; 
+            maxTemperatureFirstDay.innerHTML = result.daily.temperature_2m_max[0] + "°"; 
 /*             console.log(result.daily.temperature_2m_max)
  */         let minTemperatureFirstDay = document.getElementById("minTemperatureFirstDay"); /* MIN TEMPERATURE */
-            minTemperatureFirstDay.innerHTML = result.daily.temperature_2m_min[0] + "°C";
+            minTemperatureFirstDay.innerHTML = result.daily.temperature_2m_min[0] + "°";
             let imageFirstDay = document.getElementById("imageFirstDay"); /* IMAGE CODE HERE */
             imageFirstDay.src = getCodeWeather(result.daily.weather_code[1]);
             let firstDate = document.getElementById("firstDate") /* DAY CODE */
@@ -321,9 +321,9 @@ async function apiWeatherCall(object) {
 
             /* SECOUND DAY */
             let maxTemperatureSecoundDay = document.getElementById("maxTemperatureSecoundDay"); /* MAX TEMPERATURE */
-            maxTemperatureSecoundDay.innerHTML = result.daily.temperature_2m_max[2] + "°C"; 
+            maxTemperatureSecoundDay.innerHTML = result.daily.temperature_2m_max[2] + "°"; 
             let minTemperatureSecoundDay = document.getElementById("minTemperatureSecoundDay"); /* MIN TEMPERATURE */
-            minTemperatureSecoundDay.innerHTML = result.daily.temperature_2m_min[2] + "°C";
+            minTemperatureSecoundDay.innerHTML = result.daily.temperature_2m_min[2] + "°";
             let imageSecoundDay = document.getElementById("imageSecoundDay"); /* IMAGE CODE HERE */
             imageSecoundDay.src = getCodeWeather(result.daily.weather_code[2]);
             let secoundtDate = document.getElementById("secoundtDate") /* DAY CODE */
@@ -331,9 +331,9 @@ async function apiWeatherCall(object) {
         
             /* THIRD DAY */
             let maxTemperatureThirdDay = document.getElementById("maxTemperatureThirdDay"); /* MAX TEMPERATURE */
-            maxTemperatureThirdDay.innerHTML = result.daily.temperature_2m_max[3] + "°C"; 
+            maxTemperatureThirdDay.innerHTML = result.daily.temperature_2m_max[3] + "°"; 
             let minTemperatureThirdDay = document.getElementById("minTemperatureThirdDay"); /* MIN TEMPERATURE */
-            minTemperatureThirdDay.innerHTML = result.daily.temperature_2m_min[3] + "°C";
+            minTemperatureThirdDay.innerHTML = result.daily.temperature_2m_min[3] + "°";
             let thirdDayImage = document.getElementById("thirdDayImage"); /* IMAGE CODE HERE */
             thirdDayImage.src = getCodeWeather(result.daily.weather_code[3]);
             let thirdDate = document.getElementById("thirdDate") /* DAY CODE */
@@ -341,9 +341,9 @@ async function apiWeatherCall(object) {
 
             /* FOURTH DAY */
             let maxTemperatureFourDay = document.getElementById("maxTemperatureFourDay"); /* MAX TEMPERATURE */
-            maxTemperatureFourDay.innerHTML = result.daily.temperature_2m_max[4] + "°C"; 
+            maxTemperatureFourDay.innerHTML = result.daily.temperature_2m_max[4] + "°"; 
             let minTemperatureFourDay = document.getElementById("minTemperatureFourDay"); /* MIN TEMPERATURE */
-            minTemperatureFourDay.innerHTML = result.daily.temperature_2m_min[4] + "°C";
+            minTemperatureFourDay.innerHTML = result.daily.temperature_2m_min[4] + "°";
             let fourDayImage = document.getElementById("fourDayImage"); /* IMAGE CODE HERE */
             fourDayImage.src = getCodeWeather(result.daily.weather_code[4]); 
             let fourthDate = document.getElementById("fourthDate") /* DAY CODE */
@@ -351,9 +351,9 @@ async function apiWeatherCall(object) {
 
             /* FIFTH  DAY  */
             let maxTemperatureFiveDay = document.getElementById("maxTemperatureFiveDay"); /* MAX TEMPERATURE */
-            maxTemperatureFiveDay.innerHTML = result.daily.temperature_2m_max[5] + "°C"; 
+            maxTemperatureFiveDay.innerHTML = result.daily.temperature_2m_max[5] + "°"; 
             let minTemperatureFiveDay = document.getElementById("minTemperatureFiveDay"); /* MIN TEMPERATURE */
-            minTemperatureFiveDay.innerHTML = result.daily.temperature_2m_min[5] + "°C";
+            minTemperatureFiveDay.innerHTML = result.daily.temperature_2m_min[5] + "°";
             let fifthDate = document.getElementById("fifthDate") /* DAY CODE */
             fifthDate.innerHTML = days[5];
             let fiveDayImage = document.getElementById("fiveDayImage");
