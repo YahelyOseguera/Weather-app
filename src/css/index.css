@@ -43,23 +43,34 @@ svg {
 }
 
 main {
-  padding: 4rem;
+  padding: 1rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: "left rigth";
+  border: 1px solid yellowgreen;
+}
+main .rigthSide {
+  display: grid;
+  grid-area: rigth;
+  border: 1px solid yellowgreen;
+  background-color: #ccc;
   /* Inputs styles  */
   /* End of inputs styles */
   /* Daily Forescast Section*/
 }
-main .inputsSearchButton {
+main .rigthSide .inputsSearchButton {
   display: flex;
   justify-content: space-around;
   gap: 4rem;
   padding: 2rem 0;
   /*     border: 1px red solid; */
 }
-main .inputsSearchButton .dropdown {
+main .rigthSide .inputsSearchButton .dropdown {
   width: 13.5rem;
   position: relative;
 }
-main .inputsSearchButton .dropdown select {
+main .rigthSide .inputsSearchButton .dropdown select {
   appearance: none;
   -webkit-appearance: none;
   width: 100%;
@@ -71,7 +82,7 @@ main .inputsSearchButton .dropdown select {
   border-radius: 0.3rem;
   cursor: pointer;
 }
-main .inputsSearchButton .dropdown .dropdown::after {
+main .rigthSide .inputsSearchButton .dropdown .dropdown::after {
   content: "▼";
   font-size: 0.75rem;
   position: absolute;
@@ -80,7 +91,7 @@ main .inputsSearchButton .dropdown .dropdown::after {
   transform: translateY(-50%);
   pointer-events: none;
 }
-main .inputsSearchButton input[type=text] {
+main .rigthSide .inputsSearchButton input[type=text] {
   width: 16rem;
   font-size: 1rem;
   padding: 0.5rem 1rem;
@@ -88,11 +99,11 @@ main .inputsSearchButton input[type=text] {
   border: 1px solid #ccc;
   border-radius: 0.3rem;
 }
-main .autocomplete-container {
+main .rigthSide .autocomplete-container {
   position: relative;
   width: 18.75rem;
 }
-main .autocomplete-container #cityInput {
+main .rigthSide .autocomplete-container #cityInput {
   width: 100%;
   min-height: 3rem;
   padding: 0 0.625rem;
@@ -101,7 +112,7 @@ main .autocomplete-container #cityInput {
   outline: none;
   border-radius: 4px;
 }
-main .autocomplete-container .suggestions-list {
+main .rigthSide .autocomplete-container .suggestions-list {
   position: absolute;
   width: 100%;
   border: 1px solid #ccc;
@@ -115,52 +126,62 @@ main .autocomplete-container .suggestions-list {
   margin: 0;
   z-index: 1000;
 }
-main .autocomplete-container .suggestions-list li {
+main .rigthSide .autocomplete-container .suggestions-list li {
   padding: 0.625rem;
   cursor: pointer;
 }
-main .autocomplete-container .suggestions-list li:hover {
+main .rigthSide .autocomplete-container .suggestions-list li:hover {
   background-color: #f0f0f0;
 }
-main .currenWeatherBox {
+main .rigthSide .currenWeatherBox {
   padding: 2rem 0rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90vw;
+  /* width: 90vw; */
   height: fit-content;
   flex-direction: column;
   gap: 2rem;
   border: 0.05rem solid rgb(161, 158, 158);
 }
-main .currenWeatherBox .temperature {
+main .rigthSide .currenWeatherBox .currenWeatherBox {
+  justify-content: center;
+  align-items: center;
+  width: 410px;
+  height: fit-content;
+  flex-direction: column;
+  gap: 2rem;
+  border: 0.05rem solid rgb(161, 158, 158);
+  padding: 10px 10px;
+}
+main .rigthSide .currenWeatherBox .currenWeatherBox .temperature {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 2rem;
 }
-main .currenWeatherBox .temperature .cityName {
+main .rigthSide .currenWeatherBox .currenWeatherBox .temperature .cityName {
   display: flex;
   align-items: center;
   justify-content: space-around;
   gap: 1rem;
 }
-main .currenWeatherBox .temperature .cityName .vl {
+main .rigthSide .currenWeatherBox .currenWeatherBox .temperature .cityName .vl {
   border-left: 0.1rem solid grey;
   height: 1rem;
 }
-main .currenWeatherBox .temperature .cityName .Celsius {
+main .rigthSide .currenWeatherBox .currenWeatherBox .temperature .cityName .Celsius {
   display: none;
 }
-main .currenWeatherBox .temperature .cityName .img {
+main .rigthSide .currenWeatherBox .currenWeatherBox .temperature .cityName .img {
   width: 1rem;
   height: 1rem;
   position: relative;
   left: 10rem;
   cursor: pointer;
 }
-main .currenWeatherBox .weatherInfo {
+main .rigthSide .currenWeatherBox .currenWeatherBox .weatherInfo {
   width: 50vw;
   height: 6rem;
   border: 0.05rem solid rgb(161, 158, 158);
@@ -170,45 +191,18 @@ main .currenWeatherBox .weatherInfo {
   flex-direction: column;
   gap: 0.5rem;
 }
-main .hourRange {
-  width: 90vw;
-  padding: 1rem 2rem;
-  border: 0.05rem solid rgb(161, 158, 158);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-main .hourRange .Third {
-  width: 5rem;
-  height: 7rem;
-  border: 0.05rem solid rgb(161, 158, 158);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-main .hourRange .Third .dayImage {
-  width: calc(100% - 2rem);
-}
-main .hourRange .Third span {
-  order: 1;
-}
-main .hourRange .Third p {
-  order: -1;
-}
-main .dailyForescast {
+main .rigthSide .dailyForescast {
   width: 100%;
   margin: 40px 0;
 }
-main .dailyForecastCard {
+main .rigthSide .dailyForecastCard {
   width: 100%;
   display: flex;
   justify-content: space-between;
   border: 1px solid black;
   padding: 10px 10px;
 }
-main .dailyForecastCard .dailyCard {
+main .rigthSide .dailyForecastCard .dailyCard {
   display: flex;
   flex-direction: column;
   width: 160px;
@@ -218,20 +212,20 @@ main .dailyForecastCard .dailyCard {
   align-items: center;
   background-color: lightgray;
 }
-main .dailyForecastCard .dailyCard h3 {
+main .rigthSide .dailyForecastCard .dailyCard h3 {
   font-size: 25px;
   margin: 0;
 }
-main .dailyForecastCard .dailyCard img {
+main .rigthSide .dailyForecastCard .dailyCard img {
   width: 50px;
   height: 50px;
   margin: 20px 0;
 }
-main .dailyForecastCard .dailyCard p {
+main .rigthSide .dailyForecastCard .dailyCard p {
   font-size: 15px;
   margin: 0;
 }
-main .dailyForecastCard .dailyCard .maxAndMinTemperature {
+main .rigthSide .dailyForecastCard .dailyCard .maxAndMinTemperature {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -239,9 +233,53 @@ main .dailyForecastCard .dailyCard .maxAndMinTemperature {
   width: 100%;
   padding: 0;
 }
-main .dailyForecastCard .dailyCard .maxAndMinTemperature p {
+main .rigthSide .dailyForecastCard .dailyCard .maxAndMinTemperature p {
   font-size: 20px;
   margin: 0;
+}
+
+/* 3 Hour Range */
+.leftSide {
+  display: grid;
+  grid-area: left;
+  align-items: end;
+  /* grid-column: 1/3; */
+}
+.leftSide .threeHourRange {
+  padding: 30px 0;
+  border: 1px solid black;
+}
+.leftSide .threeHourRange h1 {
+  justify-content: center;
+  text-align: center;
+  margin: 15px 0;
+}
+.leftSide .threeHourRange .hourRange {
+  display: flex;
+  gap: 20px;
+  padding: 10px 10px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+.leftSide .threeHourRange .hourRange .Third {
+  display: flex;
+  width: 6rem;
+  height: 7rem;
+  border: 0.05rem solid rgb(161, 158, 158);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.leftSide .threeHourRange .dayImage {
+  width: calc(100% - 2rem);
+}
+.leftSide .threeHourRange span {
+  order: 1;
+}
+.leftSide .threeHourRange p {
+  order: -1;
 }
 
 @media only screen and (max-width: 480px) {
