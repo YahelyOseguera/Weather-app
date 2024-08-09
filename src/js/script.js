@@ -15,13 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
     select.appendChild(option);
   });
 
-  document.querySelectorAll('.dailyCard').forEach((card, index) => {
-    card.addEventListener('click', () => { 
-      console.log(index)
+  document.querySelectorAll(".dailyCard").forEach((card, index) => {
+    card.addEventListener("click", () => {
+      console.log(index);
       updateThreeHourRange(index);
     });
   });
-  
 });
 
 let cityInput = document.getElementById("cityInput");
@@ -215,7 +214,7 @@ async function apiWeatherCall(object) {
     .then((response) => response.text())
     .then((result) => {
       var result = JSON.parse(result);
-      weatherData = result
+      weatherData = result;
       console.log(result);
       console.log(weatherData);
 
@@ -429,7 +428,7 @@ async function apiWeatherCall(object) {
       const sunriseTime = new Date(result.daily.sunrise[0]);
       const sunsetTime = new Date(result.daily.sunset[0]);
 
-/* 
+      /* 
       // Horarios de cada 3 horas
       const timeSlots = [0, 3, 6, 9, 12, 15, 18, 21];
       const hourlyTemperatures = result.hourly.temperature_2m;
@@ -464,54 +463,58 @@ async function apiWeatherCall(object) {
       }); */
 
       /* -------------------------- 3 hour range --------------------------------- */
+
+      updateThreeHourRange(0);
     })
     .catch((error) => console.error(error));
 }
 
-function updateThreeHourRange(dayIndex) {
-        // Obtener los datos de la API de clima
-        const hourlyTemperatures = weatherData.hourly.temperature_2m;
-        const hourlyTimes = weatherData.hourly.time;
-      
-        // Asumir que tienes 8 intervalos de 3 horas, esto es solo un ejemplo
-        const timeSlots = [0, 3, 6, 9, 12, 15, 18, 21];
-        const startIndex = dayIndex * 8; // Multiplicador según el número de intervalos en un día
-      
-        // Limpiar la sección de rango de 3 horas
-        document.querySelectorAll('.hour-range').forEach(element => {
-          element.innerHTML = ''; // Asumir que tienes elementos con clase 'hour-range' para mostrar las horas
-        });
-      
-        timeSlots.forEach((start, index) => {
 
-          let tempElement = document.getElementById(
-            `hour${start}to${timeSlots[index + 1] || 0}`
-          );
-          let imgElement = document.getElementById(
-            `day${start}to${timeSlots[index + 1] || 0}`
-          );
-      
-          // Mostrar la temperatura
-          tempElement.innerText = `${hourlyTemperatures[startIndex + start]} °C`;
-      
-          // Determinar la hora específica en el rango de 3 horas
-          const slotTime = new Date(hourlyTimes[startIndex + start]);
-          const formattedTime = slotTime.toTimeString().split(" ")[0].slice(0, 5); // Formato HH:MM
-      
-          // Mostrar la imagen correspondiente según la hora del día
-          const sunriseTime = new Date(weatherData.daily.sunrise[dayIndex]);
-          const sunsetTime = new Date(weatherData.daily.sunset[dayIndex]);
-      
-          if (slotTime >= sunriseTime && slotTime < sunsetTime) {
-            imgElement.innerHTML = '<img src="img/sun.png" alt="Sun">';
-          } else {
-            imgElement.innerHTML = '<img src="img/moon.png" alt="Moon">';
-          }
-      
-          // Mostrar la hora en el elemento correspondiente
-          document.getElementsByClassName("hour")[index].innerText = formattedTime;
-        });
-      }      
+ /* -------------------------- 3 hour range --------------------------------- */
+ function updateThreeHourRange(dayIndex) {
+  // Obtener los datos de la API de clima
+  const hourlyTemperatures = weatherData.hourly.temperature_2m;
+  const hourlyTimes = weatherData.hourly.time;
+
+  // Asumir que tienes 8 intervalos de 3 horas en un día, ajusta si es necesario
+  const timeSlots = [0, 3, 6, 9, 12, 15, 18, 21];
+  const startIndex = dayIndex * 8; // Multiplicador según el número de intervalos en un día
+
+  // Limpiar la sección de rango de 3 horas
+  document.querySelectorAll(".hour-range").forEach((element) => {
+    element.innerHTML = ""; // Asegúrate de tener elementos con la clase 'hour-range' para mostrar las horas
+  });
+
+  timeSlots.forEach((start, index) => {
+    let tempElement = document.getElementById(
+      `hour${start}to${timeSlots[index + 1] || 0}`
+    );
+    let imgElement = document.getElementById(
+      `day${start}to${timeSlots[index + 1] || 0}`
+    );
+
+    // Mostrar la temperatura
+    tempElement.innerText = `${hourlyTemperatures[startIndex + start]} °C`;
+
+    // Determinar la hora específica en el rango de 3 horas
+    const slotTime = new Date(hourlyTimes[startIndex + start]);
+    const formattedTime = slotTime.toTimeString().split(" ")[0].slice(0, 5); // Formato HH:MM
+
+    // Mostrar la imagen correspondiente según la hora del día
+    const sunriseTime = new Date(weatherData.daily.sunrise[dayIndex]);
+    const sunsetTime = new Date(weatherData.daily.sunset[dayIndex]);
+
+    if (slotTime >= sunriseTime && slotTime < sunsetTime) {
+      imgElement.innerHTML = '<img src="img/sun.png" alt="Sun">';
+    } else {
+      imgElement.innerHTML = '<img src="img/moon.png" alt="Moon">';
+    }
+
+    // Mostrar la hora en el elemento correspondiente
+    document.getElementsByClassName("hour")[index].innerText = formattedTime;
+  });
+}
+
 
 function getCodeWeather(value) {
   switch (value) {
