@@ -10,159 +10,167 @@
       rel="stylesheet"
     />
   </head>
+
   <body>
     <main>
-      <section class="rigthSide">
-      <section class="inputsSearchButton">
-        <div class="dropdown">
-          <select name="favorite-cities" id="favorite-cities">
-            <option value="" disabled selected>Pick your fav city</option>
-            <!-- <option value="vancouver">Vancouver</option>
-            <option value="london">London</option> -->
-            <!-- More cities will be added dynamically -->
-          </select>
-        </div>
-        <div class="autocomplete-container">
-          <input
-            type="text"
-            placeholder="Cities"
-            id="cityInput"
-            autocomplete="off"
-            oninput="autocompleteCity()"
-          />
-          <ul id="suggestions" class="suggestions-list"></ul>
-        </div>
-      </section>
+      <div id="container">
+        <div id="container2">
+          <section class="rigthSide">
+            <section class="inputsSearchButton">
+              <div class="autocomplete-container">
+                <input
+                  type="text"
+                  placeholder="Search for location"
+                  id="cityInput"
+                  autocomplete="off"
+                  oninput="autocompleteCity()"
+                />
+                <ul id="suggestions" class="suggestions-list"></ul>
+                <i class="bx bx-search-alt-2 bx-tada bx-sm" id="icon"></i>
+              </div>
+              <div class="dropdown">
+                <select name="favorite-cities" id="favorite-cities">
+                  <option value="" disabled selected>Favorite Cities</option>
+                </select>
+              </div>
+            </section>
 
-      <section class="CurrentWeather">
-        <h1>Current Weather</h1>
-        <div class="currenWeatherBox">
-          <div class="temperature">
-            <div class="cityName">
+            <section class="CurrentWeather">
+              <h1>Current Weather</h1>
+              <div class="currenWeatherBox">
+                <div class="temperature">
+                  <div class="cityName">
+                    <p id="currentTime"></p>
+                    <div class="vl"></div>
+                    <p id="currentHour"></p>
+                    <h2 id="city_Name">City Name</h2>
+                    <div class="img star-icon">
+                      <i class="bx bxs-star bx-spin" id="icon1"></i>
+                    </div>
+                  </div>
+                  <div class="stylesDegreesCelsius">
+                    <p class="celsius" id="degreesCelsius"></p>
+                  </div>
+                </div>
+                <div class="weatherInfo">
+                  <div class="description">
+                    <p id="weatherDescription"></p>
+                  </div>
+                  <div class="hour">
+                    <p id="dayOrNight"></p>
+                  </div>
+                  <div class="precipitation">
+                    <p id="precipitation"></p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="dailyForescast">
+              <h1>Daily Forescast - 5 days</h1>
+              <div class="dailyForecastCard" id="daily-forecast">
+                <!-- First day -->
+                <div class="dailyCard forecast-day" data-day="1">
+                  <h3 id="firstDate"></h3>
+                  <img id="imageFirstDay" src="" alt="" />
+                  <div class="maxAndMinTemperature">
+                    <p id="minTemperatureFirstDay">0</p>
+                    <p id="maxTemperatureFirstDay">0</p>
+                  </div>
+                </div>
+                <!-- Secound day -->
+                <div class="dailyCard forecast-day" data-day="2">
+                  <h3 id="secoundtDate"></h3>
+                  <img id="imageSecoundDay" src="" alt="" />
+                  <div class="maxAndMinTemperature">
+                    <p id="minTemperatureSecoundDay">0</p>
+                    <p id="maxTemperatureSecoundDay">0</p>
+                  </div>
+                </div>
+                <!-- Third day -->
+                <div class="dailyCard forecast-day" data-day="3">
+                  <h3 id="thirdDate"></h3>
+                  <img id="thirdDayImage" src="" alt="" />
+                  <div class="maxAndMinTemperature">
+                    <p id="minTemperatureThirdDay">0</p>
+                    <p id="maxTemperatureThirdDay">0</p>
+                  </div>
+                </div>
+                <!-- FOUR day -->
+                <div class="dailyCard forecast-day" data-day="4">
+                  <h3 id="fourthDate"></h3>
+                  <img id="fourDayImage" src="" alt="" />
+                  <div class="maxAndMinTemperature">
+                    <p id="minTemperatureFourDay">0</p>
+                    <p id="maxTemperatureFourDay">0</p>
+                  </div>
+                </div>
+                <!-- FIVE day -->
+                <div class="dailyCard forecast-day" data-day="5">
+                  <h3 id="fifthDate"></h3>
+                  <img id="fiveDayImage" src="" alt="" />
+                  <div class="maxAndMinTemperature">
+                    <p id="minTemperatureFiveDay">0</p>
+                    <p id="maxTemperatureFiveDay">0</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+          <section class="leftSide">
+            <section class="time">
               <p id="currentTime"></p>
               <div class="vl"></div>
               <p id="currentHour"></p>
-              <h2 id="city_Name">City Name</h2>
-              <div class="img star-icon">
-                <i class="bx bxs-star bx-tada bx-rotate-90"></i>
+            </section>
+            <section class="threeHourRange">
+              <h1>3 hour range</h1>
+              <div class="hourRange" id="three-hourly-forecast">
+                <div class="Third" id="three-hour-forecast-1">
+                  <span id="hour0to3"></span>
+                  <div id="day0to3" class="dayImage"></div>
+                  <p class="hour"></p>
+                </div>
+                <div class="Third" id="three-hour-forecast-2">
+                  <span id="hour3to6"></span>
+                  <div id="day3to6" class="dayImage"></div>
+                  <p class="hour"></p>
+                </div>
+                <div class="Third" id="three-hour-forecast-3">
+                  <span id="hour6to9"></span>
+                  <div id="day6to9" class="dayImage"></div>
+                  <p class="hour"></p>
+                </div>
+                <div class="Third" id="three-hour-forecast-4">
+                  <span id="hour9to12"></span>
+                  <div id="day9to12" class="dayImage"></div>
+                  <p class="hour">11</p>
+                </div>
+                <div class="Third" id="three-hour-forecast-5">
+                  <span id="hour12to15"></span>
+                  <div id="day12to15" class="dayImage"></div>
+                  <p class="hour">11</p>
+                </div>
+                <div class="Third" id="three-hour-forecast-6">
+                  <span id="hour15to18"></span>
+                  <div id="day15to18" class="dayImage"></div>
+                  <p class="hour">11</p>
+                </div>
+                <div class="Third" id="three-hour-forecast-7">
+                  <span id="hour18to21"></span>
+                  <div id="day18to21" class="dayImage"></div>
+                  <p class="hour">11</p>
+                </div>
+                <div class="Third" id="three-hour-forecast-8">
+                  <span id="hour21to0"></span>
+                  <div id="day21to0" class="dayImage"></div>
+                  <p class="hour">24:00</p>
+                </div>
               </div>
-            </div>
-            <div class="stylesDegreesCelsius">
-              <p class="celsius" id="degreesCelsius"></p>
-            </div>
-          </div>
-          <div class="weatherInfo">
-            <div class="description"><p id="weatherDescription"></p></div>
-            <div class="hour"><p id="dayOrNight"></p></div>
-            <div class="precipitation"><p id="precipitation"></p></div>
-          </div>
+            </section>
+          </section>
         </div>
-      </section>
-
-      <section class="dailyForescast">
-        <h1>Daily Forescast - 5 days</h1>
-        <div class="dailyForecastCard" id="daily-forecast">
-          <!-- First day -->
-          <div class="dailyCard forecast-day" data-day="1">
-            <h3 id="firstDate"></h3>
-            <img id="imageFirstDay" src="" alt="" />
-            <div class="maxAndMinTemperature">
-              <p id="minTemperatureFirstDay">0</p>
-              <p>/</p>
-              <p id="maxTemperatureFirstDay">0</p>
-            </div>
-          </div>
-          <!-- Secound day -->
-          <div class="dailyCard forecast-day" data-day="2">
-            <h3 id="secoundtDate"></h3>
-            <img id="imageSecoundDay" src="" alt="" />
-            <div class="maxAndMinTemperature">
-              <p id="minTemperatureSecoundDay">0</p>
-              <p>/</p>
-              <p id="maxTemperatureSecoundDay">0</p>
-            </div>
-          </div>
-          <!-- Third day -->
-          <div class="dailyCard forecast-day" data-day="3">
-            <h3 id="thirdDate"></h3>
-            <img id="thirdDayImage" src="" alt="" />
-            <div class="maxAndMinTemperature">
-              <p id="minTemperatureThirdDay">0</p>
-              <p>/</p>
-              <p id="maxTemperatureThirdDay">0</p>
-            </div>
-          </div>
-          <!-- FOUR day -->
-          <div class="dailyCard forecast-day" data-day="4">
-            <h3 id="fourthDate"></h3>
-            <img id="fourDayImage" src="" alt="" />
-            <div class="maxAndMinTemperature">
-              <p id="minTemperatureFourDay">0</p>
-              <p>/</p>
-              <p id="maxTemperatureFourDay">0</p>
-            </div>
-          </div>
-          <!-- FIVE day -->
-          <div class="dailyCard forecast-day" data-day="5">
-            <h3 id="fifthDate"></h3>
-            <img id="fiveDayImage" src="" alt="" />
-            <div class="maxAndMinTemperature">
-              <p id="minTemperatureFiveDay">0</p>
-              <p>/</p>
-              <p id="maxTemperatureFiveDay">0</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      </section>
-      <section class="leftSide"> 
-      <section class="threeHourRange">
-        <h1>3 hour range</h1>
-        <div class="hourRange" id="three-hourly-forecast">
-            <div class="Third" id="three-hour-forecast-1">
-                <span id="hour0to3"></span>
-                <div id="day0to3" class="dayImage"></div>
-                <p class="hour"></p>
-            </div>
-            <div class="Third" id="three-hour-forecast-2">
-                <span id="hour3to6"></span>
-                <div id="day3to6" class="dayImage"></div>
-                <p class="hour"></p>
-            </div>
-            <div class="Third" id="three-hour-forecast-3">
-                <span id="hour6to9"></span>
-                <div id="day6to9" class="dayImage"></div>
-                <p class="hour"></p>
-            </div>
-            <div class="Third" id="three-hour-forecast-4">
-                <span id="hour9to12"></span>
-                <div id="day9to12" class="dayImage"></div>
-                <p class="hour">11</p>
-            </div>
-            <div class="Third" id="three-hour-forecast-5">
-                <span id="hour12to15"></span>
-                <div id="day12to15" class="dayImage"></div>
-                <p class="hour">11</p>
-            </div>
-            <div class="Third" id="three-hour-forecast-6">
-                <span id="hour15to18"></span>
-                <div id="day15to18" class="dayImage"></div>
-                <p class="hour">11</p>
-            </div>
-            <div class="Third" id="three-hour-forecast-7">
-                <span id="hour18to21"></span>
-                <div id="day18to21" class="dayImage"></div>
-                <p class="hour">11</p>
-            </div>
-            <div class="Third" id="three-hour-forecast-8">
-                <span id="hour21to0"></span>
-                <div id="day21to0" class="dayImage"></div>
-                <p class="hour">24:00</p>
-            </div>
-        </div>
-    </section>
-      </section>
-    
+      </div>
     </main>
     <script src="js/script.js"></script>
   </body>

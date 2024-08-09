@@ -32,6 +32,7 @@ const dayOrNight = document.getElementById("dayOrNight");
 const precipitation = document.getElementById("precipitation");
 const currentTime = document.getElementById("currentTime");
 const currentHour = document.getElementById("currentHour");
+const degreesCelsius = document.getElementById("degreesCelsius");
 let isUpdating = false;
 let selectedCityValue = "";
 let weatherData = {};
@@ -317,6 +318,9 @@ async function apiWeatherCall(object) {
           weatherDescription.innerText =
             "Thunderstorm with slight and heavy hail";
           break;
+        default:
+          weatherDescription.innerText = "Clear Sky";
+          break;
       }
 
       if (result.current.is_day === 1) {
@@ -342,8 +346,8 @@ async function apiWeatherCall(object) {
         result.daily.temperature_2m_max[0] + "°C";
       /* console.log(result.daily.temperature_2m_max)
        */ let minTemperatureFirstDay = document.getElementById(
-        "minTemperatureFirstDay"
-      ); /* MIN TEMPERATURE */
+          "minTemperatureFirstDay"
+        ); /* MIN TEMPERATURE */
       minTemperatureFirstDay.innerHTML =
         result.daily.temperature_2m_min[0] + "°C";
       let imageFirstDay =
@@ -465,13 +469,91 @@ async function apiWeatherCall(object) {
       /* -------------------------- 3 hour range --------------------------------- */
 
       updateThreeHourRange(0);
+
+      // Styles
+
+      let URL = background(result.current.weather_code);
+      document.body.style.backgroundImage = `url('${URL}')`;
+      const container = document.getElementById("container");
+      container.style.backgroundImage = `url('${URL}')`;
+      const icon = document.getElementById("icon")
+      const icon1 = document.getElementById("icon1")
+      const container2 = document.getElementById("container2");
+      const textH1 = document.getElementById('h1');
+      const cityIn = document.getElementById ('cityInput');
+      const sugg = document.getElementById ('suggestions');
+      switch (result.current.weather_code) {
+        case 0:
+        container2.style.borderColor = "#b1bbd6";
+        textH1.style.background = "-webkit-linear-gradient(#6f8ebb, #011337)";
+        textH1.style.webkitBackgroundClip = "text";
+        textH1.style.webkitTextFillColor = "transparent";
+        city_Name.style.color = "#011337";
+        currentTime.style.color = "#164a7c";
+        currentHour.style.color = "#164a7c";
+        degreesCelsius.style.color = "#164a7c";
+        weatherDescription.style.color = "#164a7c";
+        precipitation.style.color = "#164a7c";
+        select.style.color = "#011337";
+        select.style.borderColor = "#6f8ebb";
+        icon.style.color = "#6f8ebb";
+        icon1.style.color = "#6f8ebb";
+        cityIn.style.color = "#011337";
+        cityIn.style.borderColor = "#6f8ebb";
+        sugg.style.color = "#011337";
+        sugg.style.borderColor = "#6f8ebb";
+        break;
+        case 1:
+        case 2:
+        case 3:
+        case 45:
+        case 48:
+          var image = "img/cloudyDay.jpg";
+          break;
+        case 51:
+        case 53:
+        case 55:
+        case 56:
+        case 57:
+        case 61:
+        case 63:
+        case 65:
+        case 66:
+        case 67:
+          var image = "img/rainyDay.jpg";
+          break;
+        case 71:
+        case 73:
+        case 75:
+        case 77:
+          var image = "img/snowyDay.jpg";
+          break;
+        case 80:
+        case 81:
+        case 82:
+          var image = "img/rainyDay.jpg";
+          break;
+        case 85:
+        case 86:
+          var image = "img/snowyDay.jpg";
+          break;
+        case 95:
+        case 96:
+        case 99:
+          var image = "img/rainyDay.jpg";
+          break;
+        default:
+          var image = "img/sunnyDay.jpg";
+          break;
+      }
+
     })
     .catch((error) => console.error(error));
 }
 
 
- /* -------------------------- 3 hour range --------------------------------- */
- function updateThreeHourRange(dayIndex) {
+/* -------------------------- 3 hour range --------------------------------- */
+function updateThreeHourRange(dayIndex) {
   // Obtener los datos de la API de clima
   const hourlyTemperatures = weatherData.hourly.temperature_2m;
   const hourlyTimes = weatherData.hourly.time;
@@ -578,6 +660,60 @@ function getCodeWeather(value) {
     image: image,
   };
   return finalObject.image;
+}
+
+function background(value) {
+  switch (value) {
+    case 0:
+      var image = "img/sunnyDay.jpg";
+      break;
+    case 1:
+    case 2:
+    case 3:
+    case 45:
+    case 48:
+      var image = "img/cloudyDay.jpg";
+      break;
+    case 51:
+    case 53:
+    case 55:
+    case 56:
+    case 57:
+    case 61:
+    case 63:
+    case 65:
+    case 66:
+    case 67:
+      var image = "img/rainyDay.jpg";
+      break;
+    case 71:
+    case 73:
+    case 75:
+    case 77:
+      var image = "img/snowyDay.jpg";
+      break;
+    case 80:
+    case 81:
+    case 82:
+      var image = "img/rainyDay.jpg";
+      break;
+    case 85:
+    case 86:
+      var image = "img/snowyDay.jpg";
+      break;
+    case 95:
+    case 96:
+    case 99:
+      var image = "img/rainyDay.jpg";
+      break;
+    default:
+      var image = "img/sunnyDay.jpg";
+      break;
+  }
+  let url = {
+    image: image,
+  };
+  return url.image;
 }
 
 // Llamar a la API de clima con los valores iniciales del objeto
