@@ -213,7 +213,7 @@ async function apiWeatherCall(object) {
       var result = JSON.parse(result);
       console.log(result);
 
-      // Mostrar datos
+      // Show data
       city_Name.innerText = object.city;
       degreesCelsius.innerText = result.current.temperature_2m + " °C";
       precipitation.innerText =
@@ -329,18 +329,18 @@ async function apiWeatherCall(object) {
       /* FIRST DAY */
       let maxTemperatureFirstDay = document.getElementById(
         "maxTemperatureFirstDay"
-      ); /* MAX TEMPERATURE */
+      );
       maxTemperatureFirstDay.innerHTML =
         result.daily.temperature_2m_max[0] + "°C";
      let minTemperatureFirstDay = document.getElementById(
         "minTemperatureFirstDay"
-      ); /* MIN TEMPERATURE */
+      );
       minTemperatureFirstDay.innerHTML =
         result.daily.temperature_2m_min[0] + "°C";
       let imageFirstDay =
-        document.getElementById("imageFirstDay"); /* IMAGE CODE HERE */
+        document.getElementById("imageFirstDay");
       imageFirstDay.src = getCodeWeather(result.daily.weather_code[1]);
-      let firstDate = document.getElementById("firstDate"); /* DAY CODE */
+      let firstDate = document.getElementById("firstDate");
       firstDate.innerHTML = days[1];
 
       weather.innerText = weatherInfo(result.daily.weather_code[0]);
@@ -348,7 +348,7 @@ async function apiWeatherCall(object) {
       /* SECOND DAY */
       let maxTemperatureSecoundDay = document.getElementById(
         "maxTemperatureSecoundDay"
-      ); /* MAX TEMPERATURE */
+      );
       maxTemperatureSecoundDay.innerHTML =
         result.daily.temperature_2m_max[2] + "°C";
       let minTemperatureSecoundDay = document.getElementById(
@@ -357,7 +357,7 @@ async function apiWeatherCall(object) {
       minTemperatureSecoundDay.innerHTML =
         result.daily.temperature_2m_min[2] + "°C";
       let imageSecoundDay =
-        document.getElementById("imageSecoundDay"); /* IMAGE CODE HERE */
+        document.getElementById("imageSecoundDay");
       imageSecoundDay.src = getCodeWeather(result.daily.weather_code[2]);
       let secoundtDate = document.getElementById("secoundtDate"); /* DAY CODE */
       secoundtDate.innerHTML = days[2];
