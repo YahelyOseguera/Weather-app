@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Baskervville+SC&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -42,36 +43,78 @@ svg {
   max-width: 100%;
 }
 
-main {
-  padding: 4rem;
+body {
+  overflow-x: hidden;
+  background-size: cover;
+  border: solid 3rem rgba(0, 0, 0, 0.03);
   /* Inputs styles  */
   /* End of inputs styles */
+  /* Daily Forescast Section*/
 }
-main .inputsSearchButton {
+body::before {
+  position: absolute;
+  z-index: -1;
+  top: -3rem;
+  right: -3rem;
+  bottom: -3rem;
+  left: -3rem;
+  border: inherit;
+  border-color: transparent;
+  background: inherit;
+  background-clip: border-box;
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+  -webkit-clip-path: inset(0);
+  clip-path: inset(0);
+  content: "";
+}
+body main #container {
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body main #container #container2 {
+  width: 100vw;
+  height: 85vh;
+  border: 0.4rem solid #b1bbd6;
+  border-radius: 0.2rem 0.4rem 0.4rem 0.8rem;
+}
+body main #container #container2 #h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 5rem;
+  font-weight: 400;
+}
+body main #container #container2 h2,
+body main #container #container2 h3,
+body main #container #container2 p {
+  font-family: "Roboto", sans-serif;
+}
+body .inputsSearchButton {
   display: flex;
   justify-content: space-around;
   gap: 4rem;
   padding: 2rem 0;
-  /*     border: 1px red solid; */
 }
-main .inputsSearchButton .dropdown {
+body .inputsSearchButton .dropdown {
   width: 13.5rem;
   position: relative;
 }
-main .inputsSearchButton .dropdown select {
-  -moz-appearance: none;
-       appearance: none;
+body .inputsSearchButton .dropdown select {
+  background-color: transparent;
+  font-family: "Roboto", sans-serif;
+  appearance: none;
   -webkit-appearance: none;
   width: 100%;
   min-height: 3rem;
   font-size: 1rem;
   padding: 0.5rem 1rem;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  border: 1px solid;
+  outline: none;
   border-radius: 0.3rem;
   cursor: pointer;
 }
-main .inputsSearchButton .dropdown .dropdown::after {
+body .inputsSearchButton .dropdown .dropdown::after {
   content: "▼";
   font-size: 0.75rem;
   position: absolute;
@@ -80,49 +123,61 @@ main .inputsSearchButton .dropdown .dropdown::after {
   transform: translateY(-50%);
   pointer-events: none;
 }
-main .inputsSearchButton input[type=text] {
+body .inputsSearchButton input[type=text] {
   width: 16rem;
   font-size: 1rem;
   padding: 0.5rem 1rem;
-  background-color: #fff;
-  border: 1px solid #ccc;
   border-radius: 0.3rem;
+  font-family: "Roboto", sans-serif;
 }
-main .autocomplete-container {
+body .autocomplete-container {
   position: relative;
   width: 18.75rem;
 }
-main .autocomplete-container #cityInput {
+body .autocomplete-container i {
+  position: absolute;
+  top: 30%;
+  transform: translateY(-50%);
+  right: 0.5rem;
+}
+body .autocomplete-container #cityInput {
   width: 100%;
   min-height: 3rem;
   padding: 0 0.625rem;
   box-sizing: border-box;
-  border: 1px solid #ccc;
+  border: 1px solid;
   outline: none;
   border-radius: 4px;
+  background-color: transparent;
 }
-main .autocomplete-container .suggestions-list {
+body .autocomplete-container #cityInput::placeholder {
+  font-family: "Roboto", sans-serif;
+  color: #011337;
+}
+body .autocomplete-container .suggestions-list {
   position: absolute;
   width: 100%;
-  border: 1px solid #ccc;
+  border: 1px solid;
   border-top: none;
-  max-height: 12.5rem;
+  max-height: 8rem;
   overflow-y: auto;
-  background-color: white;
+  background-color: transparent;
   border-radius: 0 0 4px 4px;
   list-style-type: none;
   padding: 0;
   margin: 0;
   z-index: 1000;
+  font-family: "Roboto", sans-serif;
 }
-main .autocomplete-container .suggestions-list li {
+body .autocomplete-container .suggestions-list li {
   padding: 0.625rem;
   cursor: pointer;
 }
-main .autocomplete-container .suggestions-list li:hover {
-  background-color: #f0f0f0;
+body .autocomplete-container .suggestions-list li:hover {
+  background-color: transparent;
+  border: 1px solid #6f8ebb;
 }
-main .currenWeatherBox {
+body .currenWeatherBox {
   padding: 2rem 0rem;
   display: flex;
   justify-content: center;
@@ -131,60 +186,103 @@ main .currenWeatherBox {
   height: fit-content;
   flex-direction: column;
   gap: 2rem;
-  border: 0.05rem solid rgb(161, 158, 158);
 }
-main .currenWeatherBox .temperature {
+body .currenWeatherBox .temperature {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 2rem;
 }
-main .currenWeatherBox .temperature .cityName {
+body .currenWeatherBox .temperature .cityName {
   display: flex;
   align-items: center;
   justify-content: space-around;
   gap: 1rem;
 }
-main .currenWeatherBox .temperature .cityName .vl {
+body .currenWeatherBox .temperature .cityName .vl {
   border-left: 0.1rem solid grey;
   height: 1rem;
 }
-main .currenWeatherBox .temperature .cityName .Celsius {
+body .currenWeatherBox .temperature .cityName .Celsius {
   display: none;
 }
-main .currenWeatherBox .temperature .cityName .img {
+body .currenWeatherBox .temperature .cityName .img {
   width: 1rem;
   height: 1rem;
   position: relative;
   left: 10rem;
   cursor: pointer;
 }
-main .currenWeatherBox .weatherInfo {
+body .currenWeatherBox .weatherInfo {
   width: 50vw;
   height: 6rem;
-  border: 0.05rem solid rgb(161, 158, 158);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 0.5rem;
 }
-main .hourRange {
+body .hourRange {
   width: 90vw;
   padding: 1rem 2rem;
-  border: 0.05rem solid rgb(161, 158, 158);
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-main .hourRange .Third {
+body .hourRange .Third {
   width: 5rem;
   height: 7rem;
   border: 0.05rem solid rgb(161, 158, 158);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+body .dailyForescast {
+  width: 100%;
+  margin: 40px 0;
+}
+body .dailyForecastCard {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  padding: 10px 10px;
+}
+body .dailyForecastCard .dailyCard {
+  display: flex;
+  flex-direction: column;
+  width: 160px;
+  height: 220px;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+body .dailyForecastCard .dailyCard h3 {
+  font-size: 25px;
+  margin: 0;
+}
+body .dailyForecastCard .dailyCard img {
+  width: 50px;
+  height: 50px;
+  margin: 20px 0;
+}
+body .dailyForecastCard .dailyCard p {
+  font-size: 15px;
+  margin: 0;
+}
+body .dailyForecastCard .dailyCard .maxAndMinTemperature {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+}
+body .dailyForecastCard .dailyCard .maxAndMinTemperature p {
+  font-size: 20px;
+  margin: 0;
 }
 
 @media only screen and (max-width: 480px) {
@@ -202,16 +300,16 @@ main .hourRange .Third {
     display: flex;
     flex-direction: row;
   }
-  main .currenWeatherBox .temperature .cityName {
+  main .currenWeatherBox .temperature .nameCity {
     padding-bottom: 0rem;
     display: flex;
     justify-content: space-between;
     gap: 1rem;
   }
-  main .currenWeatherBox .temperature .cityName .Celsius {
+  main .currenWeatherBox .temperature .nameCity .Celsius {
     display: flex;
   }
-  main .currenWeatherBox .temperature .cityName .img {
+  main .currenWeatherBox .temperature .nameCity .img {
     left: 3vw;
   }
   main .currenWeatherBox .temperature .celsius {
@@ -231,6 +329,26 @@ main .hourRange .Third {
     width: 80vw;
     height: 3rem;
   }
+  main .dailyForescast {
+    width: 100%;
+    margin: 40px 0;
+  }
+  main .dailyForescast h1 {
+    display: none;
+  }
+  main .dailyForescast .dailyForecastCard {
+    width: 100%;
+    justify-content: space-between;
+  }
+  main .dailyForescast .dailyForecastCard .dailyCard {
+    width: 67px;
+  }
+  main .dailyForescast .dailyForecastCard .dailyCard h3 {
+    font-size: 10px;
+  }
+  main .dailyForescast .dailyForecastCard .dailyCard p {
+    font-size: 10px;
+  }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
   main {
@@ -247,102 +365,31 @@ main .hourRange .Third {
     width: 80vw;
     height: 3rem;
   }
-}
-/* Daily Forescast Section*/
-.dailyForescast {
-  width: 100%;
-  margin: 40px 0;
-}
-
-.dailyForecastCard {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid black;
-  padding: 10px 10px;
-}
-.dailyForecastCard .dailyCard {
-  display: flex;
-  flex-direction: column;
-  width: 160px;
-  height: 220px;
-  border: 1px solid black;
-  justify-content: center;
-  align-items: center;
-  background-color: lightgray;
-}
-.dailyForecastCard .dailyCard h3 {
-  font-size: 25px;
-  margin: 0;
-}
-.dailyForecastCard .dailyCard img {
-  width: 50px;
-  height: 50px;
-  margin: 20px 0;
-}
-.dailyForecastCard .dailyCard p {
-  font-size: 15px;
-  margin: 0;
-}
-.dailyForecastCard .dailyCard .maxAndMinTemperature {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
-  padding: 0;
-}
-.dailyForecastCard .dailyCard .maxAndMinTemperature p {
-  font-size: 20px;
-  margin: 0;
-}
-
-@media only screen and (max-width: 480px) {
-  .dailyForescast {
-    width: 100%;
-    margin: 40px 0;
-  }
-  .dailyForescast h1 {
-    display: none;
-  }
-  .dailyForescast .dailyForecastCard {
-    width: 100%;
-    justify-content: space-between;
-  }
-  .dailyForescast .dailyForecastCard .dailyCard {
-    width: 67PX;
-  }
-  .dailyForescast .dailyForecastCard .dailyCard h3 {
-    font-size: 10px;
-  }
-  .dailyForescast .dailyForecastCard .dailyCard p {
-    font-size: 10px;
-  }
-}
-@media only screen and (min-width: 481px) and (max-width: 767px) {
-  .dailyForescast {
+  main .dailyForescast {
     margin: 0;
     width: 100%;
     margin: 40px 0;
   }
-  .dailyForescast h1 {
+  main .dailyForescast h1 {
     display: none;
   }
-  .dailyForescast .dailyForecastCard {
+  main .dailyForescast .dailyForecastCard {
     width: 100%;
     margin: 0;
     justify-content: space-between;
   }
-  .dailyForescast .dailyForecastCard .dailyCard {
+  main .dailyForescast .dailyForecastCard .dailyCard {
     width: 100px;
   }
-  .dailyForescast .dailyForecastCard .dailyCard h3 {
+  main .dailyForescast .dailyForecastCard .dailyCard h3 {
     font-size: 18px;
   }
-  .dailyForescast .dailyForecastCard .dailyCard p {
+  main .dailyForescast .dailyForecastCard .dailyCard p {
     font-size: 15px;
   }
 }
 .star-icon.selected {
   filter: brightness(0) saturate(100%) invert(78%) sepia(10%) saturate(5000%) hue-rotate(350deg) brightness(104%) contrast(102%);
-}/*# sourceMappingURL=index.css.map */
+}
+
+/*# sourceMappingURL=index.css.map */

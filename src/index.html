@@ -9,6 +9,8 @@
   </head>
   <body>
     <main>
+      <div id="container">
+        <div id="container2">
       <section class="inputsSearchButton">
         <div class="dropdown">
           <select name="favorite-cities" id="favorite-cities">
@@ -19,13 +21,14 @@
           </select>
         </div>
         <div class="autocomplete-container">
-          <input type="text" placeholder="Cities" id="cityInput" autocomplete="off" oninput="autocompleteCity()">
+          <input type="text" placeholder="Search for location" id="cityInput" autocomplete="off" oninput="autocompleteCity()">
           <ul id="suggestions" class="suggestions-list"></ul>
+          <i class='bx bx-search-alt-2 bx-tada bx-sm' id="icon"></i>
         </div>
       </section>
 
       <section class="CurrentWeather">
-      <h1>Current Weather</h1>
+      <h1 id="h1">Current Weather</h1>
       <div class="currenWeatherBox">
         <div class="temperature">
           <div class="cityName">
@@ -34,7 +37,7 @@
             <h2 id="city_Name">City Name</h2>
             <p class="Celsius">#C</p>
             <div class="img star-icon">
-              <i class='bx bxs-star bx-tada bx-rotate-90' ></i>
+              <i class='bx bxs-star bx-spin' id="icon1"></i>
             </div>
           </div>
           <div class="stylesDegreesCelsius"><p class="celsius" id="degreesCelsius"></p></div>
@@ -48,7 +51,7 @@
     </section>
 
       <section class="dailyForescast">
-        <h1>Daily Forescast - 5 days</h1>
+        <h1 id="h1">Daily Forescast - 5 days</h1>
         <div class="dailyForecastCard">
           <!-- First day -->
             <div class="dailyCard">
@@ -103,7 +106,7 @@
         </div>
       </section>
       <section class="3HourRange">
-      <h1>3 hour range</h1>
+      <h1 id="h1">3 hour range</h1>
       <div class="hourRange">
         <div class="Third">0-3</div>
         <div class="Third">3-6</div>
@@ -115,6 +118,9 @@
         <div class="Third">21-0</div>
       </div>
     </section>
+
+  </div>
+</div>
     </main>
     <script src="js/script.js"></script>
   </body>
