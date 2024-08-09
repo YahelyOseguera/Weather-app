@@ -161,14 +161,20 @@ main .rigthSide .currentWeather .currenWeatherBox .temperature .cityName {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  gap: 1rem;
 }
-main .rigthSide .currentWeather .currenWeatherBox .temperature .cityName .Celsius {
+main .rigthSide .currentWeather .currenWeatherBox .temperature .cityName .vl {
+  border-left: 0.1rem solid grey;
+  height: 1rem;
+}
+main .rigthSide .currentWeather .currenWeatherBox .temperature .cityName main .rigthSide .currentWeather .currenWeatherBox .temperature .cityName .Celsius {
   display: none;
 }
 main .rigthSide .currentWeather .currenWeatherBox .temperature .cityName .img {
   width: 1rem;
   height: 1rem;
   left: 10rem;
+  cursor: pointer;
 }
 main .rigthSide .currentWeather .currenWeatherBox .weatherInfo {
   height: 6rem;
@@ -176,6 +182,8 @@ main .rigthSide .currentWeather .currenWeatherBox .weatherInfo {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 main .rigthSide .dailyForescast {
   justify-content: center;

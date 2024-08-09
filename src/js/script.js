@@ -20,14 +20,19 @@ let cityInput = document.getElementById("cityInput");
 const select = document.getElementById("favorite-cities");
 const starIcon = document.querySelector('.star-icon');
 const city_Name = document.getElementById('city_Name')
+const weatherDescription = document.getElementById("weatherDescription");
+const dayOrNight = document.getElementById('dayOrNight');
+const precipitation = document.getElementById('precipitation');
+const currentTime = document.getElementById('currentTime')
+const currentHour = document.getElementById('currentHour')
 let isUpdating = false;
 let selectedCityValue = '';
 
 // Inicializar el objeto con valores predeterminados
 let object = {
     city: "Vancouver, BC CAN",
-    latitude: 49.2819,
-    longitude: 123.11874,
+    latitude: 49.319183,
+    longitude: -123.13855,
 }
 
 async function main() {
@@ -188,16 +193,115 @@ async function apiWeatherCall(object) {
         redirect: "follow"
     };
 
-    console.log(object)
-
     await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,is_day,precipitation,weather_code&hourly=temperature_2m,precipitation_probability,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=America%2FLos_Angeles `, requestOptions)
-    
         .then((response) => response.text())
         .then((result) => {
             var result = JSON.parse(result);
             console.log(result)
 
-            const dates = result.daily.time; 
+            // Mostrar datos
+      city_Name.innerText = object.city;
+      degreesCelsius.innerText = result.current.temperature_2m + ' °C';
+      precipitation.innerText = "Precipitation: " + result.current.precipitation + " mm";
+
+      currentTime.innerText = new Date(result.current.time).toLocaleDateString('en-us', { year:"numeric", month:"long", day:"numeric"});
+
+    //   currentHour.innerText = new Date(result.current.time).toLocaleTimeString();
+
+      switch (result.current.weather_code) {
+        case 0:
+          weatherDescription.innerText = "Clear Sky";
+          break;
+        case 1:
+          weatherDescription.innerText = "Mainly Clear";
+          break;
+        case 2:
+          weatherDescription.innerText = "Partly Cloudy";
+          break;
+        case 3:
+          weatherDescription.innerText = "Overcast";
+          break;
+        case 45:
+          weatherDescription.innerText = "Fog";
+          break;
+        case 48:
+          weatherDescription.innerText = "Depositing Rime Fog";
+          break;
+        case 51:
+          weatherDescription.innerText = "Light Drizzle";
+          break;
+        case 53:
+          weatherDescription.innerText = "Moderate Drizzle";
+          break;
+        case 55:
+          weatherDescription.innerText = "Heavy Drizzle";
+          break;
+        case 56:
+          weatherDescription.innerText = "Light Freezing Drizzle";
+          break;
+        case 57:
+          weatherDescription.innerText = "Heavy Freezing Drizzle";
+          break;
+        case 61:
+          weatherDescription.innerText = "Slight Rain";
+          break;
+        case 63:
+          weatherDescription.innerText = "Moderate Rain";
+          break;
+        case 65:
+          weatherDescription.innerText = "Heavy Rain";
+          break;
+        case 66:
+          weatherDescription.innerText = "Light Freezing Rain";
+          break;
+        case 67:
+          weatherDescription.innerText = "Heavy Freezing Rain";
+          break;
+        case 71:
+          weatherDescription.innerText = "Slight Snow Fall";
+          break;
+        case 73:
+          weatherDescription.innerText = "Moderate Snow Fall";
+          break;
+        case 75:
+          weatherDescription.innerText = "Heavy Snow Fall";
+          break;
+        case 77:
+          weatherDescription.innerText = "Snow Grains";
+          break;
+        case 80:
+          weatherDescription.innerText = "Slight Rain Showers";
+          break;
+        case 81:
+          weatherDescription.innerText = "Moderate Rain Showers";
+          break;
+        case 82:
+          weatherDescription.innerText = "Violent Rain Showers";
+          break;
+        case 85:
+          weatherDescription.innerText = "Slight Snow Showers";
+          break;
+        case 86:
+          weatherDescription.innerText = "Heavy Snow Showers";
+          break;
+        case 95:
+          weatherDescription.innerText = "Slight Thunderstorm";
+          break;
+        case 96:
+          weatherDescription.innerText = "Moderate Thunderstorm";
+          break;
+        case 99:
+          weatherDescription.innerText = "Thunderstorm with slight and heavy hail";
+          break;
+      }
+
+      if(result.current.is_day === 1){
+        dayOrNight.innerText = 'Day Time'
+      } else {
+        dayOrNight.innerText = 'Night Time'
+      }
+
+            const dates = result.daily.time;
             const days = dates.map(date =>{
                 const day = new Date(date).toLocaleDateString("en-US", {weekday: "long"});
                 console.log(dates)
@@ -255,21 +359,20 @@ async function apiWeatherCall(object) {
             let fiveDayImage = document.getElementById("fiveDayImage");
             fiveDayImage.src = getCodeWeather(result.daily.weather_code[5]);
             console.log(result.daily.weather_code[5])
-            
 
             console.log(result.daily.weather_code[5]);
-        }) 
-        .catch((error) => console.error(error));    
-} 
+        })
+        .catch((error) => console.error(error));
+}
 
 function getCodeWeather (value) {
     switch(value){
-        case 0: 
+        case 0:
             var image = "img/sun.png";
             break;
         case 1:
         case 2:
-        case 3:  
+        case 3:
             var image = "img/mainlyClear.png";
             break;
         case 45:
@@ -277,25 +380,25 @@ function getCodeWeather (value) {
             var image = "img/Fog.png";
             break;
         case 51:
-        case 53: 
+        case 53:
         case 55:
             var image = "img/drizzle.png";
             break;
-        case 56: 
+        case 56:
         case 57:
             var image = "img/Frezzingdrizzle.png";
             break;
         case 61:
-        case 63: 
+        case 63:
         case 65:
             var image = "img/Rain.png";
             break;
-        case 66: 
+        case 66:
         case 67:
             var image = "img/rainy-shower.png";
             break;
         case 71:
-        case 73: 
+        case 73:
         case 75:
             var image = "img/snowfall.png";
             break;
@@ -303,17 +406,17 @@ function getCodeWeather (value) {
             var image = "img/snowgrain.png";
             break;
         case 80:
-        case 81: 
+        case 81:
         case 82:
             var image = "img/rainy-shower.png";
             break;
-        case 85: 
+        case 85:
         case 86:
             var image = "img/snowshower.png";
             break;
         case 95:
-        case 96: 
-        case 99: 
+        case 96:
+        case 99:
             var image = "img/storm.png";
             break;
         default:
@@ -328,3 +431,5 @@ function getCodeWeather (value) {
 
 // Llamar a la API de clima con los valores iniciales del objeto
 apiWeatherCall(object);
+
+

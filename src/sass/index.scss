@@ -139,7 +139,8 @@ main {
       }
     }
     }
-    }
+  }
+ 
     /* Current waether */
     .currentWeather{
       gap: 10px;
@@ -168,6 +169,12 @@ main {
           display: flex;
           align-items: center;
           justify-content: space-around;
+          gap: 1rem;
+        & .vl {
+          border-left: 0.1rem solid grey;
+          height: 1rem;
+        }
+        & 
           & .Celsius {
             display: none;
           }
@@ -175,6 +182,7 @@ main {
             width: 1rem;
             height: 1rem;
             left: 10rem;
+            cursor: pointer;
           }
         }
       }
@@ -185,6 +193,8 @@ main {
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
+      gap: 0.5rem;
     }
     }
   }
