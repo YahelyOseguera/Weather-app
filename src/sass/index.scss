@@ -194,6 +194,20 @@ main {
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      & .dayImage{
+        width: calc( 100% - 2rem);
+      }
+
+      & span{
+        order: 1
+      }
+
+      & p{
+        order: -1
+      }
     }
   }
 

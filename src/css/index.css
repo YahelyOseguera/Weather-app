@@ -46,6 +46,7 @@ main {
   padding: 4rem;
   /* Inputs styles  */
   /* End of inputs styles */
+  /* Daily Forescast Section*/
 }
 main .inputsSearchButton {
   display: flex;
@@ -59,8 +60,7 @@ main .inputsSearchButton .dropdown {
   position: relative;
 }
 main .inputsSearchButton .dropdown select {
-  -moz-appearance: none;
-       appearance: none;
+  appearance: none;
   -webkit-appearance: none;
   width: 100%;
   min-height: 3rem;
@@ -185,6 +185,63 @@ main .hourRange .Third {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+main .hourRange .Third .dayImage {
+  width: calc(100% - 2rem);
+}
+main .hourRange .Third span {
+  order: 1;
+}
+main .hourRange .Third p {
+  order: -1;
+}
+main .dailyForescast {
+  width: 100%;
+  margin: 40px 0;
+}
+main .dailyForecastCard {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  padding: 10px 10px;
+}
+main .dailyForecastCard .dailyCard {
+  display: flex;
+  flex-direction: column;
+  width: 160px;
+  height: 220px;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+}
+main .dailyForecastCard .dailyCard h3 {
+  font-size: 25px;
+  margin: 0;
+}
+main .dailyForecastCard .dailyCard img {
+  width: 50px;
+  height: 50px;
+  margin: 20px 0;
+}
+main .dailyForecastCard .dailyCard p {
+  font-size: 15px;
+  margin: 0;
+}
+main .dailyForecastCard .dailyCard .maxAndMinTemperature {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+}
+main .dailyForecastCard .dailyCard .maxAndMinTemperature p {
+  font-size: 20px;
+  margin: 0;
 }
 
 @media only screen and (max-width: 480px) {
@@ -202,16 +259,16 @@ main .hourRange .Third {
     display: flex;
     flex-direction: row;
   }
-  main .currenWeatherBox .temperature .cityName {
+  main .currenWeatherBox .temperature .nameCity {
     padding-bottom: 0rem;
     display: flex;
     justify-content: space-between;
     gap: 1rem;
   }
-  main .currenWeatherBox .temperature .cityName .Celsius {
+  main .currenWeatherBox .temperature .nameCity .Celsius {
     display: flex;
   }
-  main .currenWeatherBox .temperature .cityName .img {
+  main .currenWeatherBox .temperature .nameCity .img {
     left: 3vw;
   }
   main .currenWeatherBox .temperature .celsius {
@@ -231,6 +288,26 @@ main .hourRange .Third {
     width: 80vw;
     height: 3rem;
   }
+  main .dailyForescast {
+    width: 100%;
+    margin: 40px 0;
+  }
+  main .dailyForescast h1 {
+    display: none;
+  }
+  main .dailyForescast .dailyForecastCard {
+    width: 100%;
+    justify-content: space-between;
+  }
+  main .dailyForescast .dailyForecastCard .dailyCard {
+    width: 67PX;
+  }
+  main .dailyForescast .dailyForecastCard .dailyCard h3 {
+    font-size: 10px;
+  }
+  main .dailyForescast .dailyForecastCard .dailyCard p {
+    font-size: 10px;
+  }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
   main {
@@ -247,102 +324,31 @@ main .hourRange .Third {
     width: 80vw;
     height: 3rem;
   }
-}
-/* Daily Forescast Section*/
-.dailyForescast {
-  width: 100%;
-  margin: 40px 0;
-}
-
-.dailyForecastCard {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid black;
-  padding: 10px 10px;
-}
-.dailyForecastCard .dailyCard {
-  display: flex;
-  flex-direction: column;
-  width: 160px;
-  height: 220px;
-  border: 1px solid black;
-  justify-content: center;
-  align-items: center;
-  background-color: lightgray;
-}
-.dailyForecastCard .dailyCard h3 {
-  font-size: 25px;
-  margin: 0;
-}
-.dailyForecastCard .dailyCard img {
-  width: 50px;
-  height: 50px;
-  margin: 20px 0;
-}
-.dailyForecastCard .dailyCard p {
-  font-size: 15px;
-  margin: 0;
-}
-.dailyForecastCard .dailyCard .maxAndMinTemperature {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
-  padding: 0;
-}
-.dailyForecastCard .dailyCard .maxAndMinTemperature p {
-  font-size: 20px;
-  margin: 0;
-}
-
-@media only screen and (max-width: 480px) {
-  .dailyForescast {
-    width: 100%;
-    margin: 40px 0;
-  }
-  .dailyForescast h1 {
-    display: none;
-  }
-  .dailyForescast .dailyForecastCard {
-    width: 100%;
-    justify-content: space-between;
-  }
-  .dailyForescast .dailyForecastCard .dailyCard {
-    width: 67PX;
-  }
-  .dailyForescast .dailyForecastCard .dailyCard h3 {
-    font-size: 10px;
-  }
-  .dailyForescast .dailyForecastCard .dailyCard p {
-    font-size: 10px;
-  }
-}
-@media only screen and (min-width: 481px) and (max-width: 767px) {
-  .dailyForescast {
+  main .dailyForescast {
     margin: 0;
     width: 100%;
     margin: 40px 0;
   }
-  .dailyForescast h1 {
+  main .dailyForescast h1 {
     display: none;
   }
-  .dailyForescast .dailyForecastCard {
+  main .dailyForescast .dailyForecastCard {
     width: 100%;
     margin: 0;
     justify-content: space-between;
   }
-  .dailyForescast .dailyForecastCard .dailyCard {
+  main .dailyForescast .dailyForecastCard .dailyCard {
     width: 100px;
   }
-  .dailyForescast .dailyForecastCard .dailyCard h3 {
+  main .dailyForescast .dailyForecastCard .dailyCard h3 {
     font-size: 18px;
   }
-  .dailyForescast .dailyForecastCard .dailyCard p {
+  main .dailyForescast .dailyForecastCard .dailyCard p {
     font-size: 15px;
   }
 }
 .star-icon.selected {
   filter: brightness(0) saturate(100%) invert(78%) sepia(10%) saturate(5000%) hue-rotate(350deg) brightness(104%) contrast(102%);
-}/*# sourceMappingURL=index.css.map */
+}
+
+/*# sourceMappingURL=index.css.map */
