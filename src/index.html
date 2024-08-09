@@ -16,14 +16,6 @@
         <div id="container2">
           <section class="rigthSide">
             <section class="inputsSearchButton">
-              <div class="dropdown">
-                <select name="favorite-cities" id="favorite-cities">
-                  <option value="" disabled selected>Pick your fav city</option>
-                  <!-- <option value="vancouver">Vancouver</option>
-            <option value="london">London</option> -->
-                  <!-- More cities will be added dynamically -->
-                </select>
-              </div>
               <div class="autocomplete-container">
                 <input
                   type="text"
@@ -35,9 +27,14 @@
                 <ul id="suggestions" class="suggestions-list"></ul>
                 <i class="bx bx-search-alt-2 bx-tada bx-sm" id="icon"></i>
               </div>
+              <div class="dropdown">
+                <select name="favorite-cities" id="favorite-cities">
+                  <option value="" disabled selected>Favorite Cities</option>
+                </select>
+              </div>
             </section>
 
-            <section class="CurrentWeather">
+            <section>
               <div class="currenWeatherBox">
                 <div class="temperature">
                   <div class="cityName">
@@ -52,7 +49,7 @@
                 </div>
                 <div class="weatherInfo">
                   <div class="description"><p id="weatherDescription"></p></div>
-                  <div class="hour"><p id="dayOrNight"></p></div>
+                  <div class="hour"></div>
                   <div class="precipitation"><p id="precipitation"></p></div>
                 </div>
               </div>

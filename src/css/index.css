@@ -100,55 +100,28 @@ body main #container #container2 .rigthSide h3 {
 body main #container #container2 .rigthSide .inputsSearchButton {
   display: flex;
   justify-content: space-around;
-  gap: 4rem;
-  padding: 2rem 0;
-}
-body main #container #container2 .rigthSide .inputsSearchButton .dropdown {
-  width: 13.5rem;
-  position: relative;
-}
-body main #container #container2 .rigthSide .inputsSearchButton .dropdown select {
-  background-color: transparent;
-  font-family: "Roboto", sans-serif;
-  appearance: none;
-  -webkit-appearance: none;
-  width: 100%;
-  min-height: 3rem;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border: 1px solid;
-  border-radius: 0.3rem;
-  cursor: pointer;
-}
-body main #container #container2 .rigthSide .inputsSearchButton .dropdown .dropdown::after {
-  content: "▼";
-  font-size: 0.75rem;
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  pointer-events: none;
+  padding: 1rem;
+  gap: 1rem;
 }
 body main #container #container2 .rigthSide .inputsSearchButton input[type=text] {
-  width: 16rem;
   font-size: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 0.3rem;
   font-family: "Roboto", sans-serif;
 }
-body main #container #container2 .rigthSide .autocomplete-container {
+body main #container #container2 .rigthSide .inputsSearchButton .autocomplete-container {
   position: relative;
-  width: 18.75rem;
+  width: 12rem;
 }
-body main #container #container2 .rigthSide .autocomplete-container i {
+body main #container #container2 .rigthSide .inputsSearchButton .autocomplete-container i {
   position: absolute;
-  top: 30%;
+  top: 10%;
   transform: translateY(-50%);
-  right: 0.5rem;
+  right: 0.2rem;
 }
-body main #container #container2 .rigthSide .autocomplete-container #cityInput {
-  width: 100%;
-  min-height: 3rem;
+body main #container #container2 .rigthSide .inputsSearchButton .autocomplete-container #cityInput {
+  width: 12rem;
+  min-height: 2rem;
   padding: 0 0.625rem;
   box-sizing: border-box;
   border: 1px solid;
@@ -156,11 +129,11 @@ body main #container #container2 .rigthSide .autocomplete-container #cityInput {
   border-radius: 4px;
   background-color: transparent;
 }
-body main #container #container2 .rigthSide .autocomplete-container #cityInput::placeholder {
+body main #container #container2 .rigthSide .inputsSearchButton .autocomplete-container #cityInput::placeholder {
   font-family: "Roboto", sans-serif;
   color: #011337;
 }
-body main #container #container2 .rigthSide .autocomplete-container .suggestions-list {
+body main #container #container2 .rigthSide .inputsSearchButton .autocomplete-container .suggestions-list {
   position: absolute;
   width: 100%;
   border: 1px solid;
@@ -175,44 +148,71 @@ body main #container #container2 .rigthSide .autocomplete-container .suggestions
   z-index: 1000;
   font-family: "Roboto", sans-serif;
 }
-body main #container #container2 .rigthSide .autocomplete-container .suggestions-list li {
+body main #container #container2 .rigthSide .inputsSearchButton .autocomplete-container .suggestions-list li {
   padding: 0.625rem;
   cursor: pointer;
 }
-body main #container #container2 .rigthSide .autocomplete-container .suggestions-list li:hover {
+body main #container #container2 .rigthSide .inputsSearchButton .autocomplete-container .suggestions-list li:hover {
   background-color: transparent;
   border: 1px solid #6f8ebb;
 }
-body main #container #container2 .rigthSide .currentWeather .currenWeatherBox {
+body main #container #container2 .rigthSide .inputsSearchButton .dropdown {
+  width: 10rem;
+  position: relative;
+}
+body main #container #container2 .rigthSide .inputsSearchButton .dropdown select {
+  background-color: transparent;
+  font-family: "Roboto", sans-serif;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  min-height: 3rem;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid;
+  border-radius: 0.3rem;
+  outline: none;
+  cursor: pointer;
+}
+body main #container #container2 .rigthSide .inputsSearchButton .dropdown .dropdown::after {
+  content: "▼";
+  font-size: 0.75rem;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+body main #container #container2 .rigthSide .currenWeatherBox {
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 2rem;
-  padding: 10px 10px;
+  padding-right: 3rem;
 }
-body main #container #container2 .rigthSide .currentWeather .currenWeatherBox .temperature {
+body main #container #container2 .rigthSide .currenWeatherBox .temperature {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: end;
+  align-items: end;
   flex-direction: column;
-  gap: 2rem;
 }
-body main #container #container2 .rigthSide .currentWeather .currenWeatherBox .temperature .cityName {
+body main #container #container2 .rigthSide .currenWeatherBox .temperature .cityName {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  gap: 5rem;
 }
-body main #container #container2 .rigthSide .currentWeather .currenWeatherBox .temperature .cityName .img {
+body main #container #container2 .rigthSide .currenWeatherBox .temperature .cityName .img {
   width: 1rem;
   height: 1rem;
   left: 10rem;
   cursor: pointer;
 }
-body main #container #container2 .rigthSide .currentWeather .currenWeatherBox .temperature .stylesDegreesCelsius p {
+body main #container #container2 .rigthSide .currenWeatherBox .temperature .stylesDegreesCelsius p {
   font-family: "PT+Serif", sans-serif;
   font-size: 4rem;
+  padding-right: 3rem;
 }
-body main #container #container2 .rigthSide .currentWeather .currenWeatherBox .weatherInfo {
+body main #container #container2 .rigthSide .currenWeatherBox .weatherInfo {
   height: 6rem;
   display: flex;
   justify-content: center;

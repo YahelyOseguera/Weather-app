@@ -21,7 +21,6 @@ const select = document.getElementById("favorite-cities");
 const starIcon = document.querySelector(".star-icon");
 const city_Name = document.getElementById("city_Name");
 const weatherDescription = document.getElementById("weatherDescription");
-const dayOrNight = document.getElementById("dayOrNight");
 const precipitation = document.getElementById("precipitation");
 const currentTime = document.getElementById("currentTime");
 const currentHour = document.getElementById("currentHour");
@@ -313,12 +312,6 @@ async function apiWeatherCall(object) {
           break;
       }
 
-      if (result.current.is_day === 1) {
-        dayOrNight.innerText = "Day Time";
-      } else {
-        dayOrNight.innerText = "Night Time";
-      }
-
       const dates = result.daily.time;
       const days = dates.map((date) => {
         const day = new Date(date).toLocaleDateString("en-US", {
@@ -435,7 +428,6 @@ async function apiWeatherCall(object) {
         currentHour.style.color = "#164a7c";
         degreesCelsius.style.color = "#164a7c";
         weatherDescription.style.color = "#164a7c";
-        dayOrNight.style.color = "#164a7c";
         precipitation.style.color = "#164a7c";
         select.style.color = "#011337";
         select.style.borderColor = "#6f8ebb";
