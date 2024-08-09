@@ -25,6 +25,11 @@ const precipitation = document.getElementById("precipitation");
 const currentTime = document.getElementById("currentTime");
 const currentHour = document.getElementById("currentHour");
 const degreesCelsius = document.getElementById("degreesCelsius");
+const weather = document.getElementById("weather")
+const weather1 = document.getElementById("weather1")
+const weather2 = document.getElementById("weather2")
+const weather3 = document.getElementById("weather3")
+const weather4 = document.getElementById("weather4")
 let isUpdating = false;
 let selectedCityValue = "";
 
@@ -338,6 +343,8 @@ async function apiWeatherCall(object) {
       let firstDate = document.getElementById("firstDate"); /* DAY CODE */
       firstDate.innerHTML = days[1];
 
+      weather.innerText = weatherInfo(result.daily.weather_code[0]);
+
       /* SECOND DAY */
       let maxTemperatureSecoundDay = document.getElementById(
         "maxTemperatureSecoundDay"
@@ -354,6 +361,7 @@ async function apiWeatherCall(object) {
       imageSecoundDay.src = getCodeWeather(result.daily.weather_code[2]);
       let secoundtDate = document.getElementById("secoundtDate"); /* DAY CODE */
       secoundtDate.innerHTML = days[2];
+      weather1.innerText = weatherInfo(result.daily.weather_code[1]);
 
       /* THIRD DAY */
       let maxTemperatureThirdDay = document.getElementById(
@@ -371,6 +379,7 @@ async function apiWeatherCall(object) {
       thirdDayImage.src = getCodeWeather(result.daily.weather_code[3]);
       let thirdDate = document.getElementById("thirdDate"); /* DAY CODE */
       thirdDate.innerHTML = days[3];
+      weather2.innerText = weatherInfo(result.daily.weather_code[2]);
 
       /* FOURTH DAY */
       let maxTemperatureFourDay = document.getElementById(
@@ -388,6 +397,7 @@ async function apiWeatherCall(object) {
       fourDayImage.src = getCodeWeather(result.daily.weather_code[4]);
       let fourthDate = document.getElementById("fourthDate"); /* DAY CODE */
       fourthDate.innerHTML = days[4];
+      weather3.innerText = weatherInfo(result.daily.weather_code[3]);
 
       /* FIFTH  DAY  */
       let maxTemperatureFiveDay = document.getElementById(
@@ -404,6 +414,7 @@ async function apiWeatherCall(object) {
       fifthDate.innerHTML = days[5];
       let fiveDayImage = document.getElementById("fiveDayImage");
       fiveDayImage.src = getCodeWeather(result.daily.weather_code[5]);
+      weather4.innerText = weatherInfo(result.daily.weather_code[4]);
 
       // Styles
 
@@ -411,22 +422,28 @@ async function apiWeatherCall(object) {
       document.body.style.backgroundImage = `url('${URL}')`;
       const container = document.getElementById("container");
       container.style.backgroundImage = `url('${URL}')`;
+
+      const container2 = document.getElementById("container2");
+      const texth1 = document.getElementById('h1');
+      const textH1 = document.getElementById('H1');
       const icon = document.getElementById("icon")
       const icon1 = document.getElementById("icon1")
-      const container2 = document.getElementById("container2");
-      const textH1 = document.getElementById('h1');
       const cityIn = document.getElementById ('cityInput');
       const sugg = document.getElementById ('suggestions');
+      const hr = document.getElementById("hr");
+
       switch (result.current.weather_code) {
         case 0:
         container2.style.borderColor = "#b1bbd6";
+        texth1.style.background = "-webkit-linear-gradient(#6f8ebb, #011337)";
+        texth1.style.webkitBackgroundClip = "text";
+        texth1.style.webkitTextFillColor = "transparent";
         textH1.style.background = "-webkit-linear-gradient(#6f8ebb, #011337)";
         textH1.style.webkitBackgroundClip = "text";
         textH1.style.webkitTextFillColor = "transparent";
-        city_Name.style.color = "#011337";
+        city_Name.style.color = "164a7c";
         currentTime.style.color = "#164a7c";
-        currentHour.style.color = "#164a7c";
-        degreesCelsius.style.color = "#164a7c";
+        degreesCelsius.style.color = '#011337';
         weatherDescription.style.color = "#164a7c";
         precipitation.style.color = "#164a7c";
         select.style.color = "#011337";
@@ -437,6 +454,7 @@ async function apiWeatherCall(object) {
         cityIn.style.borderColor = "#6f8ebb";
         sugg.style.color = "#011337";
         sugg.style.borderColor = "#6f8ebb";
+        hr.style.borderColor = "#b1bbd6";
         break;
         case 1:
         case 2:
@@ -604,5 +622,67 @@ function background(value) {
   return url.image;
 }
 
+function weatherInfo (data) {
+  switch (data) {
+    case 0:
+      return "Clear Sky";
+      case 1:
+      return "Mainly Clear";
+    case 2:
+      return "Partly Cloudy";
+    case 3:
+      return "Overcast";
+    case 45:
+      return "Fog";
+    case 48:
+      return "Depositing Rime Fog";
+    case 51:
+      return "Light Drizzle";
+    case 53:
+      return "Moderate Drizzle";
+    case 55:
+      return "Heavy Drizzle";
+    case 56:
+      return "Light Freezing Drizzle";
+    case 57:
+      return "Heavy Freezing Drizzle";
+    case 61:
+      return "Slight Rain";
+    case 63:
+      return "Moderate Rain";
+    case 65:
+      return "Heavy Rain";
+    case 66:
+      return "Light Freezing Rain";
+    case 67:
+      return "Heavy Freezing Rain";
+    case 71:
+      return "Slight Snow Fall";
+    case 73:
+      return "Moderate Snow Fall";
+    case 75:
+      return "Heavy Snow Fall";
+    case 77:
+      return "Snow Grains";
+    case 80:
+      return "Slight Rain Showers";
+    case 81:
+      return "Moderate Rain Showers";
+    case 82:
+      return "Violent Rain Showers";
+    case 85:
+      return "Slight Snow Showers";
+    case 86:
+      return "Heavy Snow Showers";
+    case 95:
+      return "Slight Thunderstorm";
+    case 96:
+      return "Moderate Thunderstorm";
+    case 99:
+      return "Thunderstorm with slight and heavy hail";
+    default:
+      return "Clear Sky";
+  }
+}
 // Llamar a la API de clima con los valores iniciales del objeto
 apiWeatherCall(object);

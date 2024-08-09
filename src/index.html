@@ -40,28 +40,29 @@
                   <div class="cityName">
                     <div><h2 id="city_Name">City Name</h2></div>
                     <div class="img star-icon">
-                      <i class="bx bxs-star bx-spin" id="icon1"></i>
+                      <i class="bx bxs-star bx-spin bx-sm" id="icon1"></i>
                     </div>
                   </div>
                   <div class="stylesDegreesCelsius">
-                    <p class="celsius" id="degreesCelsius"></p>
+                    <p id="degreesCelsius"></p>
                   </div>
                 </div>
                 <div class="weatherInfo">
-                  <div class="description"><p id="weatherDescription"></p></div>
-                  <div class="hour"></div>
                   <div class="precipitation"><p id="precipitation"></p></div>
                 </div>
               </div>
             </section>
-
+            <hr id="hr">
             <section class="dailyForescast">
               <h1 id="h1">The Next Days Forecast</h1>
               <div class="dailyForecastCard">
                 <!-- First day -->
                 <div class="dailyCard">
                   <img id="imageFirstDay" src="" alt="" />
-                  <h3 id="firstDate"></h3>
+                  <div class="text">
+                    <h3 id="firstDate"></h3>
+                    <h4 id="weather"></h4>
+                  </div>
                   <div class="maxAndMinTemperature">
                     <p id="minTemperatureFirstDay">0</p>
                     <p id="maxTemperatureFirstDay">0</p>
@@ -70,7 +71,10 @@
                 <!-- Secound day -->
                 <div class="dailyCard">
                   <img id="imageSecoundDay" src="" alt="" />
-                  <h3 id="secoundtDate"></h3>
+                  <div class="text">
+                    <h3 id="secoundtDate"></h3>
+                    <h4 id="weather1"></h4>
+                  </div>
                   <div class="maxAndMinTemperature">
                     <p id="minTemperatureSecoundDay">0</p>
                     <p id="maxTemperatureSecoundDay">0</p>
@@ -79,7 +83,10 @@
                 <!-- Third day -->
                 <div class="dailyCard">
                   <img id="thirdDayImage" src="" alt="" />
-                  <h3 id="thirdDate"></h3>
+                  <div class="text">
+                    <h3 id="thirdDate"></h3>
+                    <h4 id="weather2"></h4>
+                  </div>
                   <div class="maxAndMinTemperature">
                     <p id="minTemperatureThirdDay">0</p>
                     <p id="maxTemperatureThirdDay">0</p>
@@ -88,7 +95,10 @@
                 <!-- FOUR day -->
                 <div class="dailyCard">
                   <img id="fourDayImage" src="" alt="" />
-                  <h3 id="fourthDate"></h3>
+                  <div class="text">
+                    <h3 id="fourthDate"></h3>
+                  <h4 id="weather3"></h4>
+                  </div>
                   <div class="maxAndMinTemperature">
                     <p id="minTemperatureFourDay">0</p>
                     <p id="maxTemperatureFourDay">0</p>
@@ -97,7 +107,10 @@
                 <!-- FIVE day -->
                 <div class="dailyCard">
                   <img id="fiveDayImage" src="" alt="" />
+                  <div class="text">
                   <h3 id="fifthDate"></h3>
+                  <h4 id="weather4"></h4>
+                  </div>
                   <div class="maxAndMinTemperature">
                     <p id="minTemperatureFiveDay">0</p>
                     <p id="maxTemperatureFiveDay">0</p>
@@ -108,12 +121,12 @@
           </section>
           <section class="leftSide">
             <section class="time">
+              <!-- <div class="hour"></div> -->
               <p id="currentTime"></p>
-              <div class="vl"></div>
-              <p id="currentHour"></p>
+              <div class="description"><p id="weatherDescription"></p></div>
             </section>
             <section class="threeHourRange">
-              <h1 id="h1">3 hour range</h1>
+              <h1 id="H1">3 hour range</h1>
               <div class="hourRange">
                 <div class="Third">0-3</div>
                 <div class="Third">3-6</div>
