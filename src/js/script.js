@@ -431,37 +431,72 @@ async function apiWeatherCall(object) {
       const cityIn = document.getElementById ('cityInput');
       const sugg = document.getElementById ('suggestions');
       const hr = document.getElementById("hr");
+      const text = document.getElementById("text")
+      const text1 = document.getElementById("text1")
+      const text2 = document.getElementById("text2")
+      const text3 = document.getElementById("text3")
+      const text4 = document.getElementById("text4")
 
       switch (result.current.weather_code) {
         case 0:
         container2.style.borderColor = "#b1bbd6";
-        texth1.style.background = "-webkit-linear-gradient(#6f8ebb, #011337)";
+        texth1.style.background = "-webkit-linear-gradient(#9fb3cb, #a8b3d1)";
         texth1.style.webkitBackgroundClip = "text";
         texth1.style.webkitTextFillColor = "transparent";
-        textH1.style.background = "-webkit-linear-gradient(#6f8ebb, #011337)";
+        textH1.style.background = "-webkit-linear-gradient(#9fb3cb, #a8b3d1)";
         textH1.style.webkitBackgroundClip = "text";
         textH1.style.webkitTextFillColor = "transparent";
-        city_Name.style.color = "164a7c";
+        city_Name.style.color = "#164a7c";
         currentTime.style.color = "#164a7c";
-        degreesCelsius.style.color = '#011337';
+        degreesCelsius.style.color = '#2e8ac9';
         weatherDescription.style.color = "#164a7c";
-        precipitation.style.color = "#164a7c";
-        select.style.color = "#011337";
+        precipitation.style.color = "#b1b5da";
+        select.style.color = "#b1b5da";
         select.style.borderColor = "#6f8ebb";
-        icon.style.color = "#6f8ebb";
+        icon.style.color = "#011337";
         icon1.style.color = "#6f8ebb";
-        cityIn.style.color = "#011337";
+        cityIn.style.color = "black";
         cityIn.style.borderColor = "#6f8ebb";
         sugg.style.color = "#011337";
         sugg.style.borderColor = "#6f8ebb";
         hr.style.borderColor = "#b1bbd6";
+        text.style.color = "#92a3c7"
+        text1.style.color = "#92a3c7"
+        text2.style.color = "#92a3c7"
+        text3.style.color = "#92a3c7"
+        text4.style.color = "#92a3c7"
         break;
         case 1:
         case 2:
         case 3:
         case 45:
         case 48:
-          var image = "img/cloudyDay.jpg";
+          container2.style.borderColor = "#b1bbd6";
+          texth1.style.background = "-webkit-linear-gradient(#6f8ebb, #011337)";
+          texth1.style.webkitBackgroundClip = "text";
+          texth1.style.webkitTextFillColor = "transparent";
+          textH1.style.background = "-webkit-linear-gradient(#6f8ebb, #011337)";
+          textH1.style.webkitBackgroundClip = "text";
+          textH1.style.webkitTextFillColor = "transparent";
+          city_Name.style.color = "#164a7c";
+          currentTime.style.color = "#164a7c";
+          degreesCelsius.style.color = '#011337';
+          weatherDescription.style.color = "#164a7c";
+          precipitation.style.color = "#164a7c";
+          select.style.color = "#011337";
+          select.style.borderColor = "#6f8ebb";
+          icon.style.color = "#6f8ebb";
+          icon1.style.color = "#6f8ebb";
+          cityIn.style.color = "#011337";
+          cityIn.style.borderColor = "#6f8ebb";
+          sugg.style.color = "#011337";
+          sugg.style.borderColor = "#6f8ebb";
+          hr.style.borderColor = "#b1bbd6";
+          text.style.color = "#011337"
+          text1.style.color = "#011337"
+          text2.style.color = "#011337"
+          text3.style.color = "#011337"
+          text4.style.color = "#011337"
           break;
         case 51:
         case 53:
@@ -473,30 +508,180 @@ async function apiWeatherCall(object) {
         case 65:
         case 66:
         case 67:
-          var image = "img/rainyDay.jpg";
+          container2.style.borderColor = "#5a6465";
+          texth1.style.background = "-webkit-linear-gradient(#c2cacc, #687878)";
+          texth1.style.webkitBackgroundClip = "text";
+          texth1.style.webkitTextFillColor = "transparent";
+          textH1.style.background = "-webkit-linear-gradient(#c2cacc, #687878)";
+          textH1.style.webkitBackgroundClip = "text";
+          textH1.style.webkitTextFillColor = "transparent";
+          city_Name.style.color = "#bac4c6";
+          currentTime.style.color = "#bac4c6";
+          degreesCelsius.style.color = '#bac4c6';
+          weatherDescription.style.color = "#bac4c6";
+          precipitation.style.color = "#bac4c6";
+          select.style.color = "#bac4c6";
+          select.style.borderColor = "#bac4c6";
+          icon.style.color = "#bac4c6";
+          icon1.style.color = "#bac4c6";
+          cityIn.style.color = "#bac4c6";
+          cityIn.style.borderColor = "#bac4c6";
+          sugg.style.color = "#bac4c6";
+          sugg.style.borderColor = "#bac4c6";
+          hr.style.borderColor = "#5c7170";
+          text.style.color = "#bac4c6"
+          text1.style.color = "#bac4c6"
+          text2.style.color = "#bac4c6"
+          text3.style.color = "#bac4c6"
+          text4.style.color = "#bac4c6"
           break;
         case 71:
         case 73:
         case 75:
         case 77:
-          var image = "img/snowyDay.jpg";
+          container2.style.borderColor = "#b1bbd6";
+          texth1.style.background = "-webkit-linear-gradient(#6f8ebb, #011337)";
+          texth1.style.webkitBackgroundClip = "text";
+          texth1.style.webkitTextFillColor = "transparent";
+          textH1.style.background = "-webkit-linear-gradient(#6f8ebb, #011337)";
+          textH1.style.webkitBackgroundClip = "text";
+          textH1.style.webkitTextFillColor = "transparent";
+          city_Name.style.color = "#164a7c";
+          currentTime.style.color = "#164a7c";
+          degreesCelsius.style.color = '#011337';
+          weatherDescription.style.color = "#164a7c";
+          precipitation.style.color = "#164a7c";
+          select.style.color = "#011337";
+          select.style.borderColor = "#6f8ebb";
+          icon.style.color = "#6f8ebb";
+          icon1.style.color = "#6f8ebb";
+          cityIn.style.color = "#011337";
+          cityIn.style.borderColor = "#6f8ebb";
+          sugg.style.color = "#011337";
+          sugg.style.borderColor = "#6f8ebb";
+          hr.style.borderColor = "#b1bbd6";
+          text.style.color = "#011337"
+          text1.style.color = "#011337"
+          text2.style.color = "#011337"
+          text3.style.color = "#011337"
+          text4.style.color = "#011337"
           break;
         case 80:
         case 81:
         case 82:
-          var image = "img/rainyDay.jpg";
+          container2.style.borderColor = "#5a6465";
+          texth1.style.background = "-webkit-linear-gradient(#c2cacc, #687878)";
+          texth1.style.webkitBackgroundClip = "text";
+          texth1.style.webkitTextFillColor = "transparent";
+          textH1.style.background = "-webkit-linear-gradient(#c2cacc, #687878)";
+          textH1.style.webkitBackgroundClip = "text";
+          textH1.style.webkitTextFillColor = "transparent";
+          city_Name.style.color = "#bac4c6";
+          currentTime.style.color = "#bac4c6";
+          degreesCelsius.style.color = '#bac4c6';
+          weatherDescription.style.color = "#bac4c6";
+          precipitation.style.color = "#bac4c6";
+          select.style.color = "#bac4c6";
+          select.style.borderColor = "#bac4c6";
+          icon.style.color = "#bac4c6";
+          icon1.style.color = "#bac4c6";
+          cityIn.style.color = "#bac4c6";
+          cityIn.style.borderColor = "#bac4c6";
+          sugg.style.color = "#bac4c6";
+          sugg.style.borderColor = "#bac4c6";
+          hr.style.borderColor = "#5c7170";
+          text.style.color = "#bac4c6"
+          text1.style.color = "#bac4c6"
+          text2.style.color = "#bac4c6"
+          text3.style.color = "#bac4c6"
+          text4.style.color = "#bac4c6"
           break;
         case 85:
         case 86:
-          var image = "img/snowyDay.jpg";
+          container2.style.borderColor = "#b1bbd6";
+          texth1.style.background = "-webkit-linear-gradient(#6f8ebb, #011337)";
+          texth1.style.webkitBackgroundClip = "text";
+          texth1.style.webkitTextFillColor = "transparent";
+          textH1.style.background = "-webkit-linear-gradient(#6f8ebb, #011337)";
+          textH1.style.webkitBackgroundClip = "text";
+          textH1.style.webkitTextFillColor = "transparent";
+          city_Name.style.color = "#164a7c";
+          currentTime.style.color = "#164a7c";
+          degreesCelsius.style.color = '#011337';
+          weatherDescription.style.color = "#164a7c";
+          precipitation.style.color = "#164a7c";
+          select.style.color = "#011337";
+          select.style.borderColor = "#6f8ebb";
+          icon.style.color = "#6f8ebb";
+          icon1.style.color = "#6f8ebb";
+          cityIn.style.color = "#011337";
+          cityIn.style.borderColor = "#6f8ebb";
+          sugg.style.color = "#011337";
+          sugg.style.borderColor = "#6f8ebb";
+          hr.style.borderColor = "#b1bbd6";
+          text.style.color = "#011337"
+          text1.style.color = "#011337"
+          text2.style.color = "#011337"
+          text3.style.color = "#011337"
+          text4.style.color = "#011337"
           break;
         case 95:
         case 96:
         case 99:
-          var image = "img/rainyDay.jpg";
+          container2.style.borderColor = "#5a6465";
+          texth1.style.background = "-webkit-linear-gradient(#c2cacc, #687878)";
+          texth1.style.webkitBackgroundClip = "text";
+          texth1.style.webkitTextFillColor = "transparent";
+          textH1.style.background = "-webkit-linear-gradient(#c2cacc, #687878)";
+          textH1.style.webkitBackgroundClip = "text";
+          textH1.style.webkitTextFillColor = "transparent";
+          city_Name.style.color = "#bac4c6";
+          currentTime.style.color = "#bac4c6";
+          degreesCelsius.style.color = '#bac4c6';
+          weatherDescription.style.color = "#bac4c6";
+          precipitation.style.color = "#bac4c6";
+          select.style.color = "#bac4c6";
+          select.style.borderColor = "#bac4c6";
+          icon.style.color = "#bac4c6";
+          icon1.style.color = "#bac4c6";
+          cityIn.style.color = "#bac4c6";
+          cityIn.style.borderColor = "#bac4c6";
+          sugg.style.color = "#bac4c6";
+          sugg.style.borderColor = "#bac4c6";
+          hr.style.borderColor = "#5c7170";
+          text.style.color = "#bac4c6"
+          text1.style.color = "#bac4c6"
+          text2.style.color = "#bac4c6"
+          text3.style.color = "#bac4c6"
+          text4.style.color = "#bac4c6"
           break;
         default:
-          var image = "img/sunnyDay.jpg";
+        container2.style.borderColor = "#b1bbd6";
+        texth1.style.background = "-webkit-linear-gradient(#9fb3cb, #a8b3d1)";
+        texth1.style.webkitBackgroundClip = "text";
+        texth1.style.webkitTextFillColor = "transparent";
+        textH1.style.background = "-webkit-linear-gradient(#9fb3cb, #a8b3d1)";
+        textH1.style.webkitBackgroundClip = "text";
+        textH1.style.webkitTextFillColor = "transparent";
+        city_Name.style.color = "#164a7c";
+        currentTime.style.color = "#164a7c";
+        degreesCelsius.style.color = '#2e8ac9';
+        weatherDescription.style.color = "#164a7c";
+        precipitation.style.color = "#b1b5da";
+        select.style.color = "#b1b5da";
+        select.style.borderColor = "#6f8ebb";
+        icon.style.color = "#011337";
+        icon1.style.color = "#6f8ebb";
+        cityIn.style.color = "black";
+        cityIn.style.borderColor = "#6f8ebb";
+        sugg.style.color = "#011337";
+        sugg.style.borderColor = "#6f8ebb";
+        hr.style.borderColor = "#b1bbd6";
+        text.style.color = "#92a3c7"
+        text1.style.color = "#92a3c7"
+        text2.style.color = "#92a3c7"
+        text3.style.color = "#92a3c7"
+        text4.style.color = "#92a3c7"
           break;
       }
 
