@@ -345,7 +345,7 @@ async function apiWeatherCall(object) {
       let firstDate = document.getElementById("firstDate"); /* DAY CODE */
       firstDate.innerHTML = days[1];
 
-      /* SECOUND DAY */
+      /* SECOND DAY */
       let maxTemperatureSecoundDay = document.getElementById(
         "maxTemperatureSecoundDay"
       ); /* MAX TEMPERATURE */
