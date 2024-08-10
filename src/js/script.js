@@ -2,9 +2,8 @@ const RADAR_API_KEY = "prj_test_pk_be09ea0c78f3858e0fb5a481d10b3818ac15cb18";
 
 document.addEventListener("DOMContentLoaded", () => {
   main();
-  updateStarIcon(); // Asegúrate de que la estrella esté en el estado correcto al cargar
+  updateStarIcon(); 
 
-  // Recuperar ciudades favoritas del localStorage y agregar al menú desplegable
   const favoriteCities = getFavoriteCities();
   favoriteCities.forEach((city) => {
     const option = document.createElement("option");
@@ -42,7 +41,7 @@ let isUpdating = false;
 let selectedCityValue = "";
 let weatherData = {};
 
-// Inicializar el objeto con valores predeterminados
+// Initialize the object with default values
 let object = {
   city: "Vancouver, BC CAN",
   latitude: 49.319183,
@@ -59,17 +58,17 @@ async function main() {
       cityInput.value = "";
       selectedCityValue = selectedOption.text;
 
-      // Encontrar la ciudad en el objeto y actualizar la información del clima
+      //Find the city in the object and update the wheater information
       const cityData = {
         city: selectedOption.text,
         latitude: parseFloat(selectedOption.dataset.latitude),
         longitude: parseFloat(selectedOption.dataset.longitude),
       };
 
-      object = cityData; // Actualiza el objeto con la ciudad seleccionada
+      object = cityData; // Update the object with the selected city 
       apiWeatherCall(object);
 
-      updateStarIcon(); // Actualiza el icono de estrella
+      updateStarIcon(); // Update icon star 
       isUpdating = false;
     }
   });
@@ -149,14 +148,14 @@ async function fetchSuggestions(query) {
       select.value = "";
       selectedCityValue = suggestion.formattedAddress;
 
-      // Actualizar el objeto con la ciudad seleccionada y sus coordenadas
+      // Update the object with the selected city and coordinates
       object.city = suggestion.formattedAddress;
       object.latitude = suggestion.latitude;
       object.longitude = suggestion.longitude;
 
       apiWeatherCall(object);
 
-      updateStarIcon(); // Actualizar el icono de estrella
+      updateStarIcon(); // update star icon
 
       console.log("Ciudad seleccionada de sugerencias:", selectedCityValue);
       console.log("Objeto actualizado:", object);
@@ -224,7 +223,7 @@ async function apiWeatherCall(object) {
       console.log(result);
       console.log(weatherData);
 
-      // Mostrar datos
+      // Show data
       city_Name.innerText = object.city;
       degreesCelsius.innerText = result.current.temperature_2m + " °C";
       precipitation.innerText =
@@ -780,17 +779,17 @@ async function apiWeatherCall(object) {
 
 /* -------------------------- 3 hour range --------------------------------- */
 function updateThreeHourRange(dayIndex) {
-  // Obtener los datos de la API de clima
+  // Get the data from wheather API
   const hourlyTemperatures = weatherData.hourly.temperature_2m;
   const hourlyTimes = weatherData.hourly.time;
 
-  // Asumir que tienes 8 intervalos de 3 horas en un día, ajusta si es necesario
-  const timeSlots = [0, 3, 6, 9, 12, 15, 18, 21];
-  const startIndex = dayIndex * 8; // Multiplicador según el número de intervalos en un día
 
-  // Limpiar la sección de rango de 3 horas
+  const timeSlots = [0, 3, 6, 9, 12, 15, 18, 21];
+  const startIndex = dayIndex * 8; 
+
+  // Clean up the 3 hour range section
   document.querySelectorAll(".hour-range").forEach((element) => {
-    element.innerHTML = ""; // Asegúrate de tener elementos con la clase 'hour-range' para mostrar las horas
+    element.innerHTML = ""; 
   });
 
   timeSlots.forEach((start, index) => {
@@ -801,14 +800,14 @@ function updateThreeHourRange(dayIndex) {
       `day${start}to${timeSlots[index + 1] || 0}`
     );
 
-    // Mostrar la temperatura
+    // Show the temperature
     tempElement.innerText = `${hourlyTemperatures[startIndex + start]} °C`;
 
-    // Determinar la hora específica en el rango de 3 horas
+    // Determine the specific hour in the 3 hour range 
     const slotTime = new Date(hourlyTimes[startIndex + start]);
-    const formattedTime = slotTime.toTimeString().split(" ")[0].slice(0, 5); // Formato HH:MM
+    const formattedTime = slotTime.toTimeString().split(" ")[0].slice(0, 5); //  HH:MM format
 
-    // Mostrar la imagen correspondiente según la hora del día
+    // Show the right images according to the hour 
     const sunriseTime = new Date(weatherData.daily.sunrise[dayIndex]);
     const sunsetTime = new Date(weatherData.daily.sunset[dayIndex]);
 
@@ -818,7 +817,7 @@ function updateThreeHourRange(dayIndex) {
       imgElement.innerHTML = '<img src="img/moon.png" alt="Moon">';
     }
 
-    // Mostrar la hora en el elemento correspondiente
+    // Show the hour in the right element 
     document.getElementsByClassName("hour")[index].innerText = formattedTime;
   });
 }
