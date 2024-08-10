@@ -438,7 +438,11 @@ body {
           flex-direction: column !important;
           grid-area: up !important;
           width: 100% !important;
-
+          & .inputsSearchButton {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
           & .currenWeatherBox {
             padding-right: 0 !important;
           }

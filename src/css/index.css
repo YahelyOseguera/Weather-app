@@ -376,6 +376,11 @@ body main #container .leftSide .threeHourRange p {
     grid-area: up !important;
     width: 100% !important;
   }
+  body main #container2 .rigthSide .inputsSearchButton {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   body main #container2 .rigthSide .currenWeatherBox {
     padding-right: 0 !important;
   }
