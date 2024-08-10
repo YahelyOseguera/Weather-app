@@ -76,6 +76,7 @@ body main #container {
   /* 3 Hour Range */
 }
 body main #container #container2 {
+  width: 100%;
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-areas: "left rigth";
@@ -309,6 +310,7 @@ body main #container .leftSide {
   display: grid;
   grid-area: left;
   align-items: end;
+  justify-content: start;
   /* grid-column: 1/3; */
 }
 body main #container .leftSide .time {
