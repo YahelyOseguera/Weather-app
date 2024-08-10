@@ -359,10 +359,6 @@ body {
           font-family: $fontText;
           padding: 0 1rem;
 
-          & #currentTime {
-            padding-bottom: 2rem;
-          }
-
           & .description {
             p {
               font-size: 3rem;
@@ -456,8 +452,8 @@ body {
           display: flex !important;
           flex-direction: column !important;
           justify-content: center !important;
-          align-items: center !important;
-          grid-area: down !important; 
+          align-items: start !important;
+          grid-area: down !important;
 
           & .threeHourRange {
             display: flex !important;
@@ -473,7 +469,7 @@ body {
 
           & #H1{
             display: flex !important;;
-            justify-content: center !important;
+            justify-content: start !important;
           }
         }
       }

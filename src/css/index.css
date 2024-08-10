@@ -315,9 +315,6 @@ body main #container .leftSide .time {
   font-family: "Roboto", sans-serif;
   padding: 0 1rem;
 }
-body main #container .leftSide .time #currentTime {
-  padding-bottom: 2rem;
-}
 body main #container .leftSide .time .description p {
   font-size: 3rem;
 }
@@ -391,7 +388,7 @@ body main #container .leftSide .threeHourRange p {
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
-    align-items: center !important;
+    align-items: start !important;
     grid-area: down !important;
   }
   body main #container2 .leftSide .threeHourRange {
@@ -406,7 +403,7 @@ body main #container .leftSide .threeHourRange p {
   }
   body main #container2 .leftSide #H1 {
     display: flex !important;
-    justify-content: center !important;
+    justify-content: start !important;
   }
 }
 /*
