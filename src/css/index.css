@@ -65,55 +65,30 @@ body::before {
   clip-path: inset(0);
   content: "";
 }
-body main {
-  /*padding: 1rem;
-  width: 100%;
-  display: grid;
-   grid-template-columns: 2fr 1fr;
-  grid-template-areas: "left rigth"; */
-  /* border: 1px solid yellowgreen; */
-}
 body main #container {
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* 3 Hour Range */
-}
-body main #container #container2 {
   width: 100%;
   border: 0.4rem solid #b1bbd6;
   border-radius: 0.2rem 0.4rem 0.4rem 0.8rem;
+  /* 3 Hour Range */
+}
+body main #container #container2 {
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-areas: "left rigth";
 }
 body main #container #container2 .rigthSide {
-  /* width: max-content; */
   display: grid;
   grid-area: rigth;
   backdrop-filter: blur(10px);
-  width: 100%;
+  width: 97%;
   gap: 2rem;
   /* Inputs styles  */
   /* End of inputs styles */
-  /*  & .weatherInfo {
-      /* width: 50vw; */
-  /* height: 6rem; */
-  /* border: 0.05rem solid rgb(161, 158, 158); 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-  } */
   /* Daily Forescast Section*/
-  /* h1 {
-    justify-content: center;
-    text-align: center;
-    margin: 15px 0;
-  } */
 }
 body main #container #container2 .rigthSide #h1 {
   font-family: "Roboto", sans-serif;
@@ -129,7 +104,6 @@ body main #container #container2 .rigthSide .inputsSearchButton {
   justify-content: space-around;
   padding: 1rem;
   gap: 1rem;
-  /*     border: 1px red solid; */
 }
 body main #container #container2 .rigthSide .inputsSearchButton input[type=text] {
   font-size: 1rem;
@@ -181,7 +155,6 @@ body main #container #container2 .rigthSide .inputsSearchButton .autocomplete-co
   cursor: pointer;
 }
 body main #container #container2 .rigthSide .inputsSearchButton .autocomplete-container .suggestions-list li:hover {
-  /* background-color: transparent; */
   border: 1px solid #6f8ebb;
 }
 body main #container #container2 .rigthSide .inputsSearchButton .dropdown {
@@ -197,7 +170,6 @@ body main #container #container2 .rigthSide .inputsSearchButton .dropdown select
   min-height: 2rem;
   font-size: 1rem;
   padding: 0.5rem 1rem;
-  /* background-color: #fff; */
   border: 1px solid;
   border-radius: 0.3rem;
   outline: none;
@@ -214,14 +186,6 @@ body main #container #container2 .rigthSide .inputsSearchButton .dropdown .dropd
 }
 body main #container #container2 .rigthSide .currenWeatherBox {
   display: flex;
-  /* justify-content: center;
-  align-items: center;
-  width: 410px;
-  height: fit-content;
-  flex-direction: column;
-  gap: 2rem;
-  border: 0.05rem solid rgb(161, 158, 158);
-  padding: 10px 10px; */
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -234,34 +198,16 @@ body main #container #container2 .rigthSide .currenWeatherBox .temperature {
   align-items: center;
   flex-direction: column;
   gap: 0.5rem;
-  /* & .stylesDegreesCelsius {
-      p {
-        font-family: $fontNumbers;
-        font-size: 4rem;
-        padding-right: 3rem;
-      }
-    }
-  } */
 }
 body main #container #container2 .rigthSide .currenWeatherBox .temperature .cityName {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4rem;
-  /*  & .vl {
-    border-left: 0.1rem solid grey;
-    height: 1rem;
-  }
-
-  & .Celsius {
-    display: none;
-  } */
 }
 body main #container #container2 .rigthSide .currenWeatherBox .temperature .cityName .img {
   width: 1rem;
   height: 1rem;
-  /* position: relative;
-  left: 10rem; */
   cursor: pointer;
 }
 body main #container #container2 .rigthSide .currenWeatherBox .temperature #degreesCelsius {
@@ -280,7 +226,6 @@ body main #container #container2 .rigthSide #hr {
 }
 body main #container #container2 .rigthSide .dailyForescast {
   width: 100%;
-  /* margin: 40px 0; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -299,30 +244,20 @@ body main #container #container2 .rigthSide .dailyForecastCard {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid black;
-  padding: 10px 10px; */
   gap: 1.5rem;
   padding-bottom: 1rem;
   padding-left: 2rem;
 }
 body main #container #container2 .rigthSide .dailyForecastCard .dailyCard {
-  /* display: flex;
-  flex-direction: column;
-  width: 160px;
-  height: 220px;
-  border: 1px solid black;
-  justify-content: center;
-  align-items: center;
-  background-color: lightgray; */
   gap: 2rem;
   display: flex;
   flex-direction: row;
   width: 70%;
-  /* border: 1px solid black; */
   justify-content: center;
   align-items: center;
   text-align: center;
   padding-right: 1rem;
+  cursor: pointer;
 }
 body main #container #container2 .rigthSide .dailyForecastCard .dailyCard .text {
   width: 100%;
@@ -387,8 +322,9 @@ body main #container .leftSide .time .description p {
   font-size: 3rem;
 }
 body main #container .leftSide .threeHourRange {
-  /* padding: 30px 0;
-  border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 body main #container .leftSide .threeHourRange h1 {
   font-family: "Roboto", sans-serif;
@@ -396,13 +332,6 @@ body main #container .leftSide .threeHourRange h1 {
   padding-left: 1rem;
 }
 body main #container .leftSide .threeHourRange .hourRange {
-  /* display: flex;
-  gap: 20px;
-  padding: 10px 10px;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  justify-content: space-between; */
   display: flex;
   gap: 1rem;
   flex-direction: row;
@@ -410,19 +339,11 @@ body main #container .leftSide .threeHourRange .hourRange {
   padding: 0rem 0rem 1rem 1rem;
 }
 body main #container .leftSide .threeHourRange .hourRange .Third {
-  /* display: flex;
-  width: 6rem;
-  height: 7rem;
-  border: 0.05rem solid rgb(161, 158, 158);
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; */
   display: flex;
   flex-direction: column;
   width: 5rem;
   height: 7rem;
-  border: 0.05rem solid rgb(161, 158, 158);
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 body main #container .leftSide .threeHourRange .dayImage {
@@ -438,6 +359,7 @@ body main #container .leftSide .threeHourRange p {
 @media only screen and (max-width: 480px) {
   body {
     border: solid 2rem rgba(0, 0, 0, 0.03);
+    color: #000 !important;
   }
   body main {
     padding: 0 !important;
@@ -448,6 +370,7 @@ body main #container .leftSide .threeHourRange p {
     grid-template-areas: "up" "down" !important;
   }
   body main #container2 .rigthSide {
+    backdrop-filter: blur(0) !important;
     display: flex !important;
     flex-direction: column !important;
     grid-area: up !important;

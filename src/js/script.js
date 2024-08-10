@@ -493,8 +493,7 @@ async function apiWeatherCall(object) {
       const textH1 = document.getElementById('H1');
       const icon = document.getElementById("icon")
       const icon1 = document.getElementById("icon1")
-      /* const container2 = document.getElementById("container2");
-      const textH1 = document.getElementById('h1'); */
+      /* const container2 = document.getElementById("container2");*/
       const cityIn = document.getElementById ('cityInput');
       const sugg = document.getElementById ('suggestions');
       const hr = document.getElementById("hr");
@@ -508,20 +507,20 @@ async function apiWeatherCall(object) {
         container2.style.borderColor = "#b1bbd6";
         texth1.style.background = "-webkit-linear-gradient(#9fb3cb, #a8b3d1)";
         texth1.style.webkitBackgroundClip = "text";
-        //texth1.style.webkitTextFillColor = "transparent";
-        textH1.style.background = "-webkit-linear-gradient(#9fb3cb, #a8b3d1)";
+        texth1.style.webkitTextFillColor = "transparent";
+        textH1.style.background = "-webkit-radial-gradient(#001861, #1e5fac)";
         textH1.style.webkitBackgroundClip = "text";
-        //textH1.style.webkitTextFillColor = "transparent";
+        textH1.style.webkitTextFillColor = "transparent";
         city_Name.style.color = "#164a7c";
-        currentTime.style.color = "#164a7c";
-        degreesCelsius.style.color = '#2e8ac9';
-        weatherDescription.style.color = "#164a7c";
+        currentTime.style.color = "black";
+        degreesCelsius.style.color = '#001861';
+        weatherDescription.style.color = "#a8b3d1";
         precipitation.style.color = "#b1b5da";
         select.style.color = "#b1b5da";
         select.style.borderColor = "#6f8ebb";
         icon.style.color = "#011337";
         icon1.style.color = "#6f8ebb";
-        cityIn.style.color = "black";
+        cityIn.style.color = "#b1b5da";
         cityIn.style.borderColor = "#6f8ebb";
         sugg.style.color = "#011337";
         sugg.style.borderColor = "#6f8ebb";
@@ -531,6 +530,8 @@ async function apiWeatherCall(object) {
         text2.style.color = "#92a3c7"
         text3.style.color = "#92a3c7"
         text4.style.color = "#92a3c7"
+        var a=document.getElementsByClassName("hour")
+          for (var i=0; i<a.length; i++) a[i].style.color="#black";
         break;
         case 1:
         case 2:
@@ -541,7 +542,7 @@ async function apiWeatherCall(object) {
           texth1.style.background = "-webkit-linear-gradient(#6f8ebb, #011337)";
           texth1.style.webkitBackgroundClip = "text";
           texth1.style.webkitTextFillColor = "transparent";
-          textH1.style.background = "-webkit-linear-gradient(#6f8ebb, #011337)";
+          textH1.style.background = "-webkit-linear-gradient(#a8b3d1, #9fb3cb)";
           textH1.style.webkitBackgroundClip = "text";
           textH1.style.webkitTextFillColor = "transparent";
           city_Name.style.color = "#164a7c";
@@ -563,6 +564,8 @@ async function apiWeatherCall(object) {
           text2.style.color = "#011337"
           text3.style.color = "#011337"
           text4.style.color = "#011337"
+          var a=document.getElementsByClassName("hour")
+          for (var i=0; i<a.length; i++) a[i].style.color="#black";
           break;
         case 51:
         case 53:
@@ -600,6 +603,11 @@ async function apiWeatherCall(object) {
           text2.style.color = "#bac4c6"
           text3.style.color = "#bac4c6"
           text4.style.color = "#bac4c6"
+          var a=document.getElementsByClassName("hour")
+          for (var i=0; i<a.length; i++) a[i].style.color="#bac4c6";
+
+          var b=document.getElementsByTagName("span")
+          for (var i=0; i<b.length; i++) b[i].style.color="#bac4c6";
           break;
         case 71:
         case 73:
@@ -631,6 +639,8 @@ async function apiWeatherCall(object) {
           text2.style.color = "#011337"
           text3.style.color = "#011337"
           text4.style.color = "#011337"
+          var a=document.getElementsByClassName("hour")
+          for (var i=0; i<a.length; i++) a[i].style.color="#black";
           break;
         case 80:
         case 81:
@@ -661,6 +671,11 @@ async function apiWeatherCall(object) {
           text2.style.color = "#bac4c6"
           text3.style.color = "#bac4c6"
           text4.style.color = "#bac4c6"
+          var a=document.getElementsByClassName("hour")
+          for (var i=0; i<a.length; i++) a[i].style.color="#bac4c6";
+
+          var b=document.getElementsByTagName("span")
+          for (var i=0; i<b.length; i++) b[i].style.color="#bac4c6";
           break;
         case 85:
         case 86:
@@ -690,6 +705,8 @@ async function apiWeatherCall(object) {
           text2.style.color = "#011337"
           text3.style.color = "#011337"
           text4.style.color = "#011337"
+          var a=document.getElementsByClassName("hour")
+          for (var i=0; i<a.length; i++) a[i].style.color="black";
           break;
         case 95:
         case 96:
@@ -720,6 +737,11 @@ async function apiWeatherCall(object) {
           text2.style.color = "#bac4c6"
           text3.style.color = "#bac4c6"
           text4.style.color = "#bac4c6"
+          var a=document.getElementsByClassName("hour")
+          for (var i=0; i<a.length; i++) a[i].style.color="#bac4c6";
+
+          var b=document.getElementsByTagName("span")
+          for (var i=0; i<b.length; i++) b[i].style.color="#bac4c6";
           break;
         default:
         container2.style.borderColor = "#b1bbd6";
