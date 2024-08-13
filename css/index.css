@@ -59,7 +59,6 @@ body::before {
   border-color: transparent;
   background: inherit;
   background-clip: border-box;
-  -webkit-filter: blur(5px);
   filter: blur(5px);
   -webkit-clip-path: inset(0);
   clip-path: inset(0);
@@ -84,7 +83,8 @@ body main #container #container2 {
 body main #container #container2 .rigthSide {
   display: grid;
   grid-area: rigth;
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   width: 97%;
   gap: 2rem;
   /* Inputs styles  */
@@ -132,6 +132,10 @@ body main #container #container2 .rigthSide .inputsSearchButton .autocomplete-co
   border-radius: 4px;
   background-color: transparent;
 }
+body main #container #container2 .rigthSide .inputsSearchButton .autocomplete-container #cityInput::-moz-placeholder {
+  font-family: "Roboto", sans-serif;
+  color: black;
+}
 body main #container #container2 .rigthSide .inputsSearchButton .autocomplete-container #cityInput::placeholder {
   font-family: "Roboto", sans-serif;
   color: black;
@@ -165,7 +169,8 @@ body main #container #container2 .rigthSide .inputsSearchButton .dropdown {
 body main #container #container2 .rigthSide .inputsSearchButton .dropdown select {
   background-color: transparent;
   font-family: "Roboto", sans-serif;
-  appearance: none;
+  -moz-appearance: none;
+       appearance: none;
   -webkit-appearance: none;
   width: 100%;
   min-height: 2rem;
@@ -369,7 +374,8 @@ body main #container .leftSide .threeHourRange p {
     grid-template-areas: "up" "down" !important;
   }
   body main #container2 .rigthSide {
-    backdrop-filter: blur(0) !important;
+    -webkit-backdrop-filter: blur(0) !important;
+            backdrop-filter: blur(0) !important;
     display: flex !important;
     flex-direction: column !important;
     grid-area: up !important;
@@ -519,7 +525,7 @@ body main #container .leftSide .threeHourRange p {
 
       .dailyForecastCard {
         width: 100%;
-        margin: 0;
+        margin: 0; 
         justify-content: space-between;
 
         .dailyCard {
@@ -539,6 +545,4 @@ body main #container .leftSide .threeHourRange p {
 }*/
 .star-icon.selected {
   filter: brightness(0) saturate(100%) invert(78%) sepia(10%) saturate(5000%) hue-rotate(350deg) brightness(104%) contrast(102%);
-}
-
-/*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=index.css.map */
